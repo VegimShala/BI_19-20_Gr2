@@ -70,7 +70,7 @@ span.psw {
         </header>
         <form action="#" method="post">
         <div class="container" >
-            <label for="uname" id="some" onclick="replace()"><b> User Email</b></label>
+            <label for="uname" id="some" ><b> User Email</b></label>
             <input type="email" placeholder="Enter Email" id="email" >
             <p id="msg" style="color:darkblue; margin:1%"></p>
             <label for="psw"><b>Password</b></label>
@@ -82,11 +82,6 @@ span.psw {
             </label>
         </div>
         </form>
-        <h3 style="text-align: center;" id="time"></h3>
-        <br/>
-        <p id="max" onclick="vlera()" style="text-align: center;">Click to find the max value of log ins</p>
-        <p id="max1" style="text-align: center;"></p>
-        <br/>
     </div>
     <script>
         function CheckPassword() 
@@ -115,40 +110,7 @@ span.psw {
     }
     }
     
-    function replace(){
-        var str = document.getElementById("some").innerHTML; 
-      var txt = str.replace(/User/i,"Your");
-      document.getElementById("some").innerHTML = txt;
-    }
     
-    function color(){
-        var time=new Date();
-        var h=time.getHours();
-        sessionStorage.setItem(time,h);
-        const el=document.getElementById('po');
-        if(sessionStorage.getItem(time)>0 && sessionStorage.getItem(time)<12 ){
-            el.style.backgroundColor='cornsilk'
-        }
-        else if(sessionStorage.getItem(time)>17 && sessionStorage.getItem(time)<23 )
-        {
-            el.style.backgroundColor='lightgray'
-        }
-        else{
-            el.style.backgroundColor='white'
-    
-        }
-    }
-    color()
-
-    function time(){
-        var koha=new Date()
-        document.getElementById('time').innerHTML=koha
-    }
-    time()
-    function vlera(){
-        var max=Math.max(2,7,21,9,5);
-        document.getElementById('max1').innerHTML=max.toExponential(3).toString()+" "+isNaN(max);
-    }
-    </script>
+</script>
 </body>
 </html>
