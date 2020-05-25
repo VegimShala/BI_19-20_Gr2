@@ -1,0 +1,245 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#blur{
+    width:100%;
+    height:642px;
+    background-color: rgba(13, 21, 60,0.2) ;
+    background-image: url('../images/collage.jpg');
+    background-size: cover;
+    background-blend-mode: lighten;
+    filter:blur(10px);
+    position: fixed;
+    top:0;
+    left:0;
+    z-index: -1;
+}
+#entrance{
+    background-color: rgba(13, 21, 60,0.7) ;
+    background-image: url('../images/Places/brezovica3.jpg');
+    background-size: cover;
+    background-blend-mode: darken;
+    background-position: center;
+    
+
+}
+#entrance h1{
+    font-size: 3.5em;
+    color:white;
+    font-weight: 500;
+    font-variant: small-caps;
+    margin-top:17%;
+    text-align: center;
+    font-style: normal;
+}
+#entrance h3{
+    font-size: 1.5em;
+    color:white;
+    font-weight: 300;
+    
+    margin-bottom: 10%;
+    padding-bottom: 15%;
+    text-align: center;
+}
+
+main{
+    margin: 5% 10% ;
+}
+h2{
+    color: #0D153C;
+}
+#hidden {
+    display: none;
+}
+
+table{
+    margin: 5% 0%;
+    margin-left: -3%;
+    
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.field {
+    
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.label{
+    height: 25px;
+    width: 100%;
+    color: white;
+    background-color: #0D153C;
+    border: 1px solid #E2CBA0;
+}
+
+.label p{
+    font-size: 0.85em;
+
+    padding: 5px;
+}
+
+.text  {
+    height: 35px;
+    width: 99%;
+    background-color: #F1F4FF;
+    font-size: 1.1em;
+    color: #0D153C;
+    border: 1px solid #E2CBA0;
+    border-top: 0px;
+    padding-left: 1%;
+    box-shadow: 5px 5px 15px #E2CBA0;
+}
+
+td{
+    padding-top: 30px;
+    border-bottom: 1px solid #0D153C;
+    padding-bottom: 30px;
+    width: 50%;
+}
+
+
+
+.buttons {
+    width: 25px;
+    height: 25px;
+}
+
+.textarea{
+    width: 99%;
+    height: auto;
+    border: 1px solid #E2CBA0;
+    
+}
+#reasonHidden, #foundHidden
+{
+    display: none;
+}
+
+.checkBoxes{
+    display: inline;
+    float:left;
+    padding-left: 5px;
+}
+
+#tellUsWhyHidden{
+    display: none;
+}
+
+tfoot .field{
+    width: 70%;
+    margin-left: 2.5%;
+    
+    
+}
+
+tfoot div{
+    width: 20%;
+    display: inline;
+    float: left;
+    
+}
+
+[type=text],[type=date],[type=tel],select,textarea,[type^="sub"],[type^="res"]{
+    box-shadow: 0px 0px 10px inset rgba(13, 21, 60,0.7);
+    font-size: 1.1em;
+    box-shadow: 5px 5px 15px #E2CBA0;
+}
+
+[type$="mit"],[type=reset]{
+    background-color: rgba(226, 203, 160,0.75);
+    border-radius: 2px;
+    color: #0D153C;
+    border-style: outset;
+    width: 100px;
+    height: 50px;
+}
+
+[type~=submit]:hover,[type=reset]:hover
+{
+    background-color: #0D153C;
+    color: #E2CBA0;
+    border-color: #E2CBA0;
+}
+.testimonials{
+    width: 45%;
+    text-align: center;
+    display:block;
+    margin:30% 0 3% 27%;
+    vertical-align: middle;
+    border: 2px solid darkblue;
+}
+
+fieldset{
+    border-color: #0D153C;
+}
+
+span{
+    -webkit-transform: 
+    -moz-transform: 
+    -ms-transform: 
+    -o-transform: 
+    transform: 
+}
+
+#smileFace{
+    -webkit-transition: transform 2s, transform 2s;
+    -moztransition: transform 2s, transform 2s;
+    -ms-transition: transform 2s, transform 2s;
+    -o-transition: transform 2s, transform 2s;
+    transition: transform 2s, transform 2s;    
+}
+
+.reachedMax{ 
+    -webkit-transform: rotate(-180deg) scale(1.5,1.5) translate(-50px,-10px) ;
+    -moz-transform: rotate(-180deg) scale(1.5,1.5) translate(-50px,-10px) ;
+    -ms-transform: rotate(-180deg) scale(1.5,1.5) translate(-50px,-10px) ;
+    -o-transform: rotate(-180deg) scale(1.5,1.5) translate(-50px,-10px) ;
+    transform: rotate(-180deg) scale(1.5,1.5) translate(-50px,-10px) ;
+    
+}
+
+#labyrinth
+{
+    
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+    width: 400px;
+    height: 300px;
+    float: left;
+
+}
+#mouse,#cheese
+{
+    width: 10px;
+    height: 10px;
+    
+    display: none;
+}
+
+
+
+
+.error {
+    background-color: rgb(255, 0, 25,0.2) ;
+    box-shadow: 5px 5px 25px lightcoral;
+        
+}
+
+.highlight {
+    box-shadow: 0px 0px 20px inset #0D153C;
+}    
+
+
+#moreInfo {
+    font-size: 0.7em;
+    padding-bottom: 5px;
+}
+
+#moreInfo:hover{
+    font-size: 0.75em;
+    
+}

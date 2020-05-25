@@ -1,0 +1,432 @@
+body
+{
+    font-family: Arial, Helvetica, sans-serif;
+}
+#blur{
+    width:100%;
+    height:565px;
+    background-color: rgba(13, 21, 60,0.7) ;
+    background:radial-gradient(ellipse at top, #e66465, transparent),
+            radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+ background:-webkit-radial-gradient(ellipse at top, #e66465, transparent),
+ -webkit-radial-gradient(ellipse at bottom, #4d9f0c, transparent); 
+background: -moz-radial-gradient(ellipse at top, #e66465, transparent),
+-moz-radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+ background:-o-radial-gradient(ellipse at top, #e66465, transparent),
+ -o-radial-gradient(ellipse at bottom, #4d9f0c, transparent);
+    background-size: cover;
+    background-blend-mode: lighten;
+    filter:blur(10px);
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+}
+#entrance1{
+    background-color:  rgba(13, 21, 60,0.7) ;
+    background-image: url('../images/landscape.jpg');
+    background-size:cover;
+    background-blend-mode: darken;
+    
+}
+#entrance1 h1{
+    font-size: 53px;
+    color: white;
+    font-weight: 500;
+    display: flex;
+    margin:17% 19% 0 19%;
+    text-align: center;
+}
+#entrance1 h3{
+    font-size: 1.3em;
+    color:white;
+    font-weight: 300;
+    display: flex;
+    margin:0.5% 15% 0 24%;
+    padding-bottom: 15%;
+    text-align: center;
+}
+
+
+#col img
+{
+    width: 250px;
+    height: 220px;
+    z-index: -1;
+}
+
+#col
+{
+    margin-bottom: 70px;
+    
+}
+
+
+#service1, #service2, #service3, #service4, #service5
+{
+    display: none;
+    height: 300px;
+}
+#service1
+{
+    display: flex;
+}
+
+
+#list1
+{
+    float:left;     
+    padding: 20px 60px 20px 10px;    
+    border: none;
+    border-top: 1px solid #303030;
+    border-bottom: 1px solid #303030;
+    border-color:#E2CBA0 ;
+
+}
+
+#list1 nav ul li
+{
+    list-style-type: none;
+    padding: 0.1em;
+    
+}
+#services #list1 a{
+    color:black;
+    font-size: 35px;
+    font-weight: 300;
+    font-family: sans-serif;
+    margin:1% 0;
+}
+
+#services
+{
+    margin: 40px 40px 0px 25px;
+    
+}
+
+.service
+{
+    margin-left:25px ;
+    border: none;
+    border-bottom: 1px solid #303030;
+ border-color:#E2CBA0 ;
+
+}
+#col p
+{
+    color: #131C39;
+}
+
+.text p
+{
+    font-size: 20px;
+    font-weight: 300;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin:20px 0 20px 0 ;
+
+}
+#services>p
+{
+    font-size: 60px;
+    font-weight: 300;
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #0D153C;
+
+}
+
+#list1 #s1:hover,#list1 #s2:hover ,#list1 #s3:hover ,#list1 #s4:hover ,#list1 #s5:hover,#list1 #s6:hover   
+{
+    color: #E2CBA0;
+
+}
+
+
+#hide1, #hide2, #hide3, #hide4
+{
+    display: none;
+}
+
+ .info 
+{display: block;
+    width:550px;
+    border: none;
+    border-top: 1px solid #303030;
+    border-color:#E2CBA0 ;
+    margin: 50px 50px 0px 0px;
+    border-right:150px ;
+}
+
+
+.information
+{
+    display: inline-flex;
+    margin-left: 30px;
+    
+}
+footer
+{
+    margin-top: 50px;
+}
+
+h3
+{
+    font-size: 30px;
+    color: #121416;
+    font-weight: normal;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+   
+}
+.info img
+{width: 550px;
+height: 500px;  
+padding-top: 30px;
+
+}
+
+.info p
+{
+    
+    color: #121416;
+    font-family: Helvetica, sans-serif;
+
+}
+.info .emri
+{
+    color: black;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 30px 0 5px 0;
+}
+.info .emri1
+{
+    color: #121416;
+    font-size: 18px;
+    
+}
+
+figcaption {
+    
+    padding: 10px 10px 30px 0;
+}
+.info2 div, table
+{
+    display: inline;
+}
+.info2 img
+{
+    width: 15px;
+    height: 15px;
+    padding-right: 10px;
+}
+.info .text
+{
+    text-align: justify;
+font-size: 17x;
+padding-bottom: 30px;
+line-height: 25px;
+}
+
+figcaption>p
+{font-size: 13.5px;
+}
+ 
+.info2{display: block;}
+
+.info .t2
+{
+    color: #121416;
+    padding-bottom: 20px;
+    
+    line-height:25px ;
+
+}
+
+.info>a
+{font-weight: bold;
+color: black;
+}
+.info2  a
+{
+    color: black;
+}
+
+.info address
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: normal;
+    padding-bottom: 1px;
+    color: #121416;
+    line-height: 5px;
+    text-decoration: underline;
+}
+table
+{
+    color: #0d1f30;
+}
+table .t1
+{
+    width: 45px;
+    
+}
+table tr>td
+{ 
+    padding: 5px;
+}
+.info2>address
+{
+    padding-bottom: 30px;
+}
+#rugova, #ulpiana, #sunnyhill, #suni, #sunii, #kosova, #prite, #doku, #lidhja, #xhamia ,#muzeu ,#prishtina ,#prizreni ,#peja 
+{
+    display: none;
+}
+
+
+#rugova img, #ulpiana img, #sunnyhill img, #suni img, #sunii img ,#kosova img, #prite img, #doku img,#lidhja img, #xhamia img,#muzeu img ,#prishtina img,#prizreni img ,#peja img 
+{
+ width:600px;
+
+
+border: none;
+border-top: 1px solid #303030;
+border-color:#E2CBA0 ;
+padding-top: 60px;
+text-align: center;
+}
+
+#rugova .text, #ulpiana .text, #sunnyhill .text, #suni .text ,#sunii .text, #kosova .text, #prite .text, #doku .text ,#lidhja .text, #xhamia .text,#muzeu .text,#prishtina .text ,#prizreni .text,#peja .text 
+{
+text-align: justify;
+font-size: 17x;
+color: #121416;
+line-height: 25px;
+margin: 10px 300px 30px 300px;
+
+} 
+#rugova .t1, #ulpiana .t1 ,#sunnyhill .t1 ,#suni .t1 ,#sunii .t1, #kosova .t1, #prite .t1, #doku .t1 ,#lidhja .t1, #xhamia .t1,#muzeu .t1,#prishtina .t1,#prizreni .t1,#peja .t1 
+{ margin-left: 300px;
+    margin-right: 300px;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 20px 300px 20px 300px;
+}
+
+#rugova div, #ulpiana div, #sunnyhill div, #suni div ,#sunii div, #kosova div, #prite div, #doku div,#lidhja div, #xhamia div,#muzeu div,#prishtina div,#prizreni div,#peja div 
+{
+    justify-content: center;
+    text-align: center;
+}
+#hulpiana 
+{
+    display: grid;
+    grid-template-columns: 1fr ;
+  grid-gap: 20px;
+  grid-template-areas: "a " "b" "c" "d" "e";
+}
+.card {
+    
+    margin: 5em;
+    color: #FFFFFF;
+    line-height: 1.4;
+    border-radius: 10px;
+        
+      }
+  
+  #start7 { grid-area: a; border:2px solid #B8B39C; }
+  #start8 { grid-area: b; border:2px solid #C1C0C0; }
+  #start9 { grid-area: c; border:2px solid #D8D09F; }
+  #start10 { grid-area: d;border:2px solid #EAE9DC; }
+  #start11{ grid-area: e; border:2px solid #BBBABA; }
+#rugova #text2
+{
+    text-align: justify;
+    font-size: 17x;
+    color: #121416;
+    line-height: 25px;
+    margin: 30px 0px 30px 0px;
+}
+#rugova #t2
+{
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 20px 0px 20px 0px;
+
+}
+#rugova #start img
+  {
+      margin: auto;
+      padding: auto;
+      
+  }
+#div2  {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #E2CBA0;
+    margin: 20px 0 20px 400px;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -ms-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+  }
+
+  #div1
+  {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    margin: 10px 0 20px 20px;
+    -webkit-box-sizing: border-box !important;
+    -moz-box-sizing: border-box !important;
+    -ms-box-sizing: border-box !important;
+    box-sizing: border-box !important;
+    border: 1px solid #E2CBA0;
+  }
+
+  #textd
+  {
+    text-align: justify;
+    font-size: 17x;
+    color: #121416;
+    line-height: 25px;
+    margin: 20px 0 10px 40px;
+
+  }
+  #div3  {
+    width: 350px;
+    height: 70px;
+   
+    margin: 20px 0 20px 400px;
+  }
+  #rugova #start
+  {
+    width: 600px;
+      outline-width: 1px;
+      outline-style: dotted;
+      outline-color: #131C39 ;
+      outline-offset: 40px;
+      margin-left: 300px;
+ 
+      
+  }
+#wrap
+{
+    width: 280px;
+    height: 70px;
+   
+margin-left: 300px;
+white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+white-space: -pre-wrap;      /* Opera 4-6 */
+white-space: -o-pre-wrap;    /* Opera 7 */
+white-space: pre-wrap;       /* css-3 */
+word-wrap: break-word;       /* Internet Explorer 5.5+ */
+white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
+word-break: break-all;
+white-space: normal;
+}

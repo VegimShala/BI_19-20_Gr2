@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in</title>
+<link rel="stylesheet" type="text/css" href="css/headerFooter.css" />
+<link rel="icon" href="images/flag.jpg">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form{
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+    padding: 10%;
+}
+#entrance1{
+    height: 150px;
+    background-color: rgb(13, 21, 60);
+}
+#entrance1 h1{
+    color: white;
+    margin:3%;
+}
+.container{
+    width: 100%;
+    border: 3px solid #f1f1f1;
+    border-bottom: 50px solid #f1f1f1;
+    padding: 16px;
+}
+input[type=email], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+</style>
+<script src="js/nav.js"></script>
+</head>
+<body onload="navActive('drop'); navActive('login');">
+    <div class="wrapper" id="po">
+        <div id='blur'>
+        </div>
+        <header id="entrance1">
+               
+            <p>Kosovo</p>
+            <nav>
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="About.html">ABOUT</a></li>
+                    <li><a href="Gallery.html">GALLERY</a></li>
+                    <li><a href="Places.html">PLACES</a></li>
+                    <li><a href="Services.html">SERVICES</a></li>
+                    <li ><a href="#" id="drop">MORE</a>
+                        <div id="dropdown">
+                            <ul >
+                            <li><a href="Feedback.html">Feedback</a></li>
+                            <li><a href="login.html" id="login">Log in</a></li>
+                        </ul>
+                    </div>
+                    </li>
+            </nav>
+            <h1 style="text-align: center;">Login</h1>
+        </header>
+        <form action="#" method="post">
+        <div class="container" >
+            <label for="uname" id="some" onclick="replace()"><b> User Email</b></label>
+            <input type="email" placeholder="Enter Email" id="email" >
+            <p id="msg" style="color:darkblue; margin:1%"></p>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                <p id="warn" style="color:darkblue; margin:1%"></p>
+            <button id="bt1" type="submit" onclick="CheckPassword()">Login</button>
+            <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+        </form>
+        <h3 style="text-align: center;" id="time"></h3>
+        <br/>
+        <p id="max" onclick="vlera()" style="text-align: center;">Click to find the max value of log ins</p>
+        <p id="max1" style="text-align: center;"></p>
+        <br/>
+    </div>
+    <script>
+        function CheckPassword() 
+    { 
+    const inputtxt=document.getElementById('psw');
+    const inputem=document.getElementById('email');
+    const em=document.getElementById('msg');
+
+   try{
+    if(inputem.value==''){
+        inputem.style.borderBottom='3px solid darkblue'
+        throw "Input empty"
+    }}
+    catch(err){ msg.innerHTML=err}
+    
+    var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+    if(inputtxt.value.match(decimal)) 
+    { 
+       return true;
+    }
+    else
+    { 
+    document.getElementById('warn').innerHTML='Password must contain at least 8 characters,one uppercase letter one digit and one special character';
+    inputtxt.style.borderBottom='3px solid darkblue'
+    return false;
+    }
+    }
+    
+    function replace(){
+        var str = document.getElementById("some").innerHTML; 
+      var txt = str.replace(/User/i,"Your");
+      document.getElementById("some").innerHTML = txt;
+    }
+    
+    function color(){
+        var time=new Date();
+        var h=time.getHours();
+        sessionStorage.setItem(time,h);
+        const el=document.getElementById('po');
+        if(sessionStorage.getItem(time)>0 && sessionStorage.getItem(time)<12 ){
+            el.style.backgroundColor='cornsilk'
+        }
+        else if(sessionStorage.getItem(time)>17 && sessionStorage.getItem(time)<23 )
+        {
+            el.style.backgroundColor='lightgray'
+        }
+        else{
+            el.style.backgroundColor='white'
+    
+        }
+    }
+    color()
+
+    function time(){
+        var koha=new Date()
+        document.getElementById('time').innerHTML=koha
+    }
+    time()
+    function vlera(){
+        var max=Math.max(2,7,21,9,5);
+        document.getElementById('max1').innerHTML=max.toExponential(3).toString()+" "+isNaN(max);
+    }
+    </script>
+</body>
+</html>
