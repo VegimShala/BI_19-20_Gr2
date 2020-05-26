@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 
 // sql to create table
 // $sql = "CREATE TABLE Users (
-//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     id VARCHAR(20)  PRIMARY KEY,
 //     fullname VARCHAR(30) NOT NULL,
 //     username VARCHAR(30) NOT NULL,
 //     email VARCHAR(50),
@@ -36,11 +36,11 @@ if ($conn->connect_error) {
 //     ); ";
 
     
-//     if ($conn->query($sql) === TRUE) {
-//       echo "Table Users created successfully";
-//     } else {
-//       echo "Error creating table: " . $conn->error;
-//     }
+    // if ($conn->query($sql) === TRUE) {
+    //   echo "Table Users created successfully";
+    // } else {
+    //   echo "Error creating table: " . $conn->error;
+    // }
     
 //     if ($conn->query($sql1) === TRUE) {
 //         echo "Table Hotels created successfully";
@@ -110,7 +110,7 @@ if ($conn->connect_error) {
 //     checkOut DATE NOT NULL,
 //     offer VARCHAR(90) NOT NULL,
 //     room  INT(6) UNSIGNED,
-//     userId INT(6) UNSIGNED,
+//     userId VARCHAR(20),
 //     hotelId INT(6) UNSIGNED,
 //     FOREIGN KEY (userId) REFERENCES Users(id),
 //     FOREIGN KEY (hotelId) REFERENCES Hotels(id)
@@ -145,7 +145,7 @@ if ($conn->connect_error) {
 //     state VARCHAR(30) NOT NULL,
 //     helpful  VARCHAR(10) NOT NULL,
 //     comment  VARCHAR(50) NOT NULL,
-//     userId INT UNSIGNED,
+//     userId VARCHAR(20),
 //     FOREIGN KEY (userId) REFERENCES Users(id)
 //     ); ";
 
@@ -153,7 +153,7 @@ if ($conn->connect_error) {
 //         echo "Table FeedBack created successfully";
 //       } else {
 //         echo "Error creating table: " . $conn->error;
-  //    }
+//      }
 
 
 
@@ -178,7 +178,15 @@ if ($conn->connect_error) {
 //         echo "Error creating table: " . $conn->error;
 //       }
 
+// $sql11 = "ALTER TABLE Bookings
+// ADD price VARCHAR(30);
+//  ";
 
+//     if ($conn->query($sql11) === TRUE) {
+//         echo "Table bookings is altered";
+//       } else {
+//         echo "Error creating table: " . $conn->error;
+//       }
 
 
 $conn->close();
