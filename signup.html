@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Log in</title>
+<title>Sign Up</title>
 <link rel="stylesheet" type="text/css" href="css/headerFooter.css" />
 <link rel="icon" href="images/flag.jpg">
 <style>
@@ -27,7 +27,7 @@ form{
     border-bottom: 50px solid #f1f1f1;
     padding: 16px;
 }
-input[type=email], input[type=password] {
+input[type=text], input[type=password], input[type=email]  {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -70,17 +70,23 @@ span.psw {
         </header>
         <form action="#" method="post">
         <div class="container" >
-            <label for="uname" id="some" ><b> User Email</b></label>
-            <input type="email" placeholder="Enter Email" id="email" >
+            <label for="fname" id="some" ><b>Firstname</b></label>
+            <input type="text" placeholder="Firstname" id="fname" name="fname" >
             <p id="msg" style="color:darkblue; margin:1%"></p>
+            <label for="lname" id="some" ><b>Lastname</b></label>
+            <input type="text" placeholder="Lastname" id="lname"  name="lname" >
+            <label for="uname" id="some" ><b>Username</b></label>
+            <input type="text" placeholder="Username" id="uname"  name="uname" >
+            <label for="user" id="some" ><b>Email</b></label>
+            <input type="email" placeholder="Enter Email" id="user" name="email">
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
                 <p id="warn" style="color:darkblue; margin:1%"></p>
-            <button id="bt1" type="submit" onclick="CheckPassword()">Login</button>
+            <button id="bt1" type="submit" onclick="CheckPassword()">Sign Up</button>
             <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
+           
             </label><br><br>
-            <p>Are you new a new member?  <a href="signup.html" style="color:darkblue">SignUp</a></p>
+            
         </div>
         </form>
     </div>
