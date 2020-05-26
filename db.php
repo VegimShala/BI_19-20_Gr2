@@ -1,16 +1,5 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "travelKosovo";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password,$dbname);
-// Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
+require_once "config.php";
 // Create database
 // $sql = "CREATE DATABASE travelKosovo";
 // if ($conn->query($sql) === TRUE) {
@@ -19,7 +8,6 @@ if ($conn->connect_error) {
 //   echo "Error creating database: " . $conn->error;
 // }
 
-// sql to create table
 // $sql = "CREATE TABLE Users (
 //     id VARCHAR(20)  PRIMARY KEY,
 //     fullname VARCHAR(30) NOT NULL,
@@ -36,11 +24,11 @@ if ($conn->connect_error) {
 //     ); ";
 
     
-    // if ($conn->query($sql) === TRUE) {
-    //   echo "Table Users created successfully";
-    // } else {
-    //   echo "Error creating table: " . $conn->error;
-    // }
+//     if ($conn->query($sql) === TRUE) {
+//       echo "Table Users created successfully";
+//     } else {
+//       echo "Error creating table: " . $conn->error;
+//     }
     
 //     if ($conn->query($sql1) === TRUE) {
 //         echo "Table Hotels created successfully";
@@ -63,7 +51,6 @@ if ($conn->connect_error) {
 //         echo "Error creating table: " . $conn->error;
 //       }
 
-// sql to create table
 // $sql3 = "CREATE TABLE Services (
 //     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //     name VARCHAR(30) NOT NULL,
@@ -76,7 +63,6 @@ if ($conn->connect_error) {
 //         echo "Error creating table: " . $conn->error;
 //       }
 
-// sql to create table
 // $sql4 = "CREATE TABLE Photos (
 //     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //     src VARCHAR(30) NOT NULL,
