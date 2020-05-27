@@ -1,6 +1,7 @@
 <?php
 // Include config file
 require_once "config.php";
+
  
 // Define variables and initialize with empty values
 $fullname=$username=$fullname =$name=$lastname= $username1=$password = $confirm_password =$email= "";
@@ -149,13 +150,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         $addpass=trim($_POST["password"]);
 
-        
-         $id=strtoupper(substr($addname,0,1)).strtoupper(substr($addlastname,0,1)).strtoupper(substr($addusername,0,1)).strtoupper(substr($addusername,sizeOf($addusername)-1));
-
+         $count=(int)(rand(1,1000));
+         $id=strtoupper(substr($addname,0,1)).strtoupper(substr($addlastname,0,1)).strtoupper(substr($addusername,0,1)).strtoupper(substr($addusername,sizeOf($addusername)-2,sizeOf($addusername))).strtoupper($count);
+     
                          
 
         // Prepare an insert statement
-        $sql = "INSERT INTO users (id,fullname,username, email,pass) VALUES ('$id','$addfullname' ,'$addusername', '$addemail','$addpass')";
+        $sql = "INSERT INTO users (id,fullname,username, email,pass,lv) VALUES ('$id','$addfullname' ,'$addusername', '$addemail','$addpass','User')";
          if(mysqli_query($conn, $sql)){
     echo "Records added successfully.";
     header("location: login.php");
