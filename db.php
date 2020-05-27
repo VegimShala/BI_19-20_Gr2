@@ -23,8 +23,14 @@ require_once "config.php";
 //     tel VARCHAR(50),
 //     ID_Qyteti INT(6) UNSIGNED,
 //     Logo VARCHAR(20),
+<<<<<<< HEAD
 //     FOREIGN KEY(ID_Qyteti) REFERENCES Users(id)
+=======
+//     FOREIGN KEY(ID_Qyteti) REFERENCES Cities(id)
+>>>>>>> 17596f9648339f0052df82c56b5c31b85547f513
 //     ); ";
+
+
 
     
     // if ($conn->query($sql) === TRUE) {
@@ -101,6 +107,7 @@ require_once "config.php";
 //     room  INT(6) UNSIGNED,
 //     userId VARCHAR(20),
 //     hotelId INT(6) UNSIGNED,
+//     price VARCHAR(30),
 //     FOREIGN KEY (userId) REFERENCES Users(id),
 //     FOREIGN KEY (hotelId) REFERENCES Hotels(id)
 //     ); ";
@@ -191,6 +198,10 @@ require_once "config.php";
 //     echo "Error updating table Users: " . $conn->error;
 //   }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 17596f9648339f0052df82c56b5c31b85547f513
 // $sql14 = "ALTER TABLE Services ADD Logo VARCHAR(50) NOT NULL ";
 // if ($conn->query($sql14) === TRUE) {
 //     echo "Table Services is altered";
@@ -206,6 +217,7 @@ require_once "config.php";
 //   } else {
 //     echo "Error altering table Services: " . $conn->error;
 //   }
+<<<<<<< HEAD
 //   $sql16 = "ALTER TABLE Places Modify Logo VARCHAR(100);
 //       ALTER TABLE Services MODIFY Logo VARCHAR(100);
 //       ALTER TABLE Tour MODIFY src VARCHAR(100); ";
@@ -215,5 +227,16 @@ require_once "config.php";
 //     echo "Error altering table Places: " . $conn->error;
 //   }
 
+=======
+
+$sql16 = "ALTER TABLE Places Modify Logo VARCHAR(100);
+	  ALTER TABLE Services MODIFY Logo VARCHAR(100);
+	  ALTER TABLE Tour MODIFY src VARCHAR(100); ";
+if ($conn->multi_query($sql16) === TRUE) {
+    echo "Table Places is altered";
+  } else {
+    echo "Error altering table Places: " . $conn->error;
+  }
+>>>>>>> 17596f9648339f0052df82c56b5c31b85547f513
 $conn->close();
 ?>
