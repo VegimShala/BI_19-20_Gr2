@@ -236,6 +236,25 @@ function ClearAll() {
                                                     <div class="label">
                                                         <p><b>Continent </b> (Required)</p>
                                                     </div>
+                                                    <?php
+                                                    $continent = array (
+                                                        array("Albania","Franc","France","Spain","Sweden","Norway","Germany","Finland","Poland","Italy","United Kingdom","Romania","Belarus"
+                                                              ,"Kazakhstan","Greece","Bulgaria","Iceland","Hungary","Portugal","Austria","Czech Republic","Ireland","Lithuania"
+                                                              ,"Latvia","Croatia","Bosnia and Herzegovina","Slovakia","Estonia","Russia","Denmark","Switzerland","Netherlands","Moldova","Belgium","Armenia","North Macedonia","Serbia","Turkey","Slovenia"
+                                                              ,"Montenegro","Cyprus","Azerbaijan","Luxembourg","Georgia","Andorra","Malta","Liechtenstein","San Marino","Monaco","Vatican City"),
+                                                        array("Antigua and Barbuda","Argentina","Bahamas","Barbados","Belize","Bolivia","Brazil","Canada","Chile","Colombia","Costa Rica","Cuba","Dominica","Dominican Republic","Ecuador","El Salvador","Grenada","Guatemala","Guyana","Haiti"
+                                                              ,"Honduras","Jamaica","Mexico","Nicaragua","Panama","Paraguay","Peru","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Suriname","Trinidad and Tobago","United States","Uruguay","Venezuela"
+                                                        ),
+                                                        array("Algeria","Angola","Benin","Botswana","Burkina Faso","Burundi","Cabo Verde","Cameroon","Central African Republic","Chad","Comoros","Congo","Cote d'Ivoire","Djibouti","Egypt","Equatorial Guinea","Eritrea","Eswatini","Ethiopia","Gabo","Gambia","Ghana","Guinea","Guinea-Bissau","Kenya","Lesotho","Liberia","Lybia","Madagascar","Malawi","Mali","Mauritania"
+                                                             ,"Mauritius","Morocco","Mozambique","Namibia","Niger","Nigeria","Rwanda","Sao Tome and Principe","Senegal","Seychelles","Sierra Leone","Somalia","South Africa","South Sudan","Sudan","Tanzania","Togo","Tunisia","Uganda","Zambia","Zimbabwe","Wakanda"
+                                                        ),
+                                                        array("Afghanistan","Armenia","Azerbaijan","Bahrain","Bangladesh","Bhutan","Brunei","Cambodia","China","Cyprus","Georgia","India","Indonesia","Iran","Iraq","Israel","Japan","Jordan","Kazakhstan"
+                                                        ,"Kuwait","Kyrgyztan","Laos","Lebanon","Malaysia","Maldives","Mongolia","Myanmar","Nepal","North Korea","Oman","Pakistan","Palestine","Philippines","Qatar","Russia","Saudi Arabia","Singapore","South Korea","Sri Lanka","Syria","Taiwan","Tajikistan","Thailand","Timor-Leste","Turkey","Turkmenistan","Uzbekistan","Vietnam","Yemen"
+                                                    ),
+                                                        array("Australia","Fiji","Kiribati","Marshall Islands","Micronesia","Nauru","New Zealand","Palau","Papua New Guinea","Samoa","Solomon Islands","Tonga","Tuvalu","Vanuatu"
+                                                        )
+                                                      );
+                                                    ?>
                                                     <select name="continent" class="text required highlightable" id="selectContinent"
                                                         onclick="selectChanged()" >
                                                         <option value="0">Choose your continent:</option>
@@ -254,221 +273,47 @@ function ClearAll() {
                                                         <p><b>Country </b> (Required)</p>
                                                     </div>
                                                     <datalist id="European">
-                                                        <option>Albania</option>
-                                                        <option>France</option>
-                                                        <option>France</option>
-                                                        <option>Spain</option>
-                                                        <option>Sweden</option>
-                                                        <option>Norway</option>
-                                                        <option>Germany</option>
-                                                        <option>Finland</option>
-                                                        <option>Poland</option>
-                                                        <option>Italy</option>
-                                                        <option>United Kingdom</option>
-                                                        <option>Romania</option>
-                                                        <option>Belarus</option>
-                                                        <option>Kazakhstan</option>
-                                                        <option>Greece</option>
-                                                        <option>Bulgaria</option>
-                                                        <option>Iceland</option>
-                                                        <option>Hungary</option>
-                                                        <option>Portugal</option>
-                                                        <option>Austria</option>
-                                                        <option>Czech Republic</option>
-                                                        <option>Ireland</option>
-                                                        <option>Lithuania</option>
-                                                        <option>Latvia</option>
-                                                        <option>Croatia</option>
-                                                        <option>Bosnia and Herzegovina</option>
-                                                        <option>Slovakia</option>
-                                                        <option>Estonia</option>
-                                                        <option>Russia</option>
-                                                        <option>Denmark</option>
-                                                        <option>Switzerland</option>
-                                                        <option>Netherlands</option>
-                                                        <option>Moldova</option>
-                                                        <option>Belgium</option>
-                                                        <option>Armenia</option>
-                                                        <option>North Macedonia</option>
-                                                        <option>Serbia</option>
-                                                        <option>Turkey</option>
-                                                        <option>Slovenia</option>
-                                                        <option>Montenegro</option>
-                                                        <option>Cyprus</option>
-                                                        <option>Azerbaijan</option>
-                                                        <option>Luxembourg</option>
-                                                        <option>Georgia</option>
-                                                        <option>Andorra</option>
-                                                        <option>Malta</option>
-                                                        <option>Liechtenstein</option>
-                                                        <option>San Marino</option>
-                                                        <option>Monaco</option>
-                                                        <option>Vatican City</option>
+                                                    <?php
+                                                    for ($x = 0; $x <= sizeOf($continent[0]); $x++){
+                                                    $output="<option>".$continent[0][$x]."</option>";
+                                                    echo $output;
+                                                    }
+                                                    ?>
                                                     </datalist>
                                                     <datalist id="American">
-                                                        <option>Antigua and Barbuda</option>
-                                                        <option>Argentina</option>
-                                                        <option>Bahamas</option>
-                                                        <option>Barbados</option>
-                                                        <option>Belize</option>
-                                                        <option>Bolivia</option>
-                                                        <option>Brazil</option>
-                                                        <option>Canada</option>
-                                                        <option>Chile</option>
-                                                        <option>Colombia</option>
-                                                        <option>Costa Rica</option>
-                                                        <option>Cuba</option>
-                                                        <option>Dominica</option>
-                                                        <option>Dominican Republic</option>
-                                                        <option>Ecuador</option>
-                                                        <option>El Salvador</option>
-                                                        <option>Grenada</option>
-                                                        <option>Guatemala</option>
-                                                        <option>Guyana</option>
-                                                        <option>Haiti</option>
-                                                        <option>Honduras</option>
-                                                        <option>Jamaica</option>
-                                                        <option>Mexico</option>
-                                                        <option>Nicaragua</option>
-                                                        <option>Panama</option>
-                                                        <option>Paraguay</option>
-                                                        <option>Peru</option>
-                                                        <option>Saint Kitts and Nevis</option>
-                                                        <option>Saint Lucia</option>
-                                                        <option>Saint Vincent and the Grenadines</option>
-                                                        <option>Suriname</option>
-                                                        <option>Trinidad and Tobago</option>
-                                                        <option>United States</option>
-                                                        <option>Uruguay</option>
-                                                        <option>Venezuela</option>
+                                                    <?php
+                                                    for ($x = 0; $x <= sizeOf($continent[1]); $x++){
+                                                    $output="<option>".$continent[1][$x]."</option>";
+                                                    echo $output;
+                                                    }
+                                                    ?>
                                                     </datalist>
             
                                                     <datalist id="African">
-                                                        <option>Algeria</option>
-                                                        <option>Angola</option>
-                                                        <option>Benin</option>
-                                                        <option>Botswana</option>
-                                                        <option>Burkina Faso</option>
-                                                        <option>Burundi</option>
-                                                        <option>Cabo Verde</option>
-                                                        <option>Cameroon</option>
-                                                        <option>Central African Republic</option>
-                                                        <option>Chad</option>
-                                                        <option>Comoros</option>
-                                                        <option>Congo</option>
-                                                        <option>Cote d'Ivoire</option>
-                                                        <option>Djibouti</option>
-                                                        <option>Egypt</option>
-                                                        <option>Equatorial Guinea</option>
-                                                        <option>Eritrea</option>
-                                                        <option>Eswatini</option>
-                                                        <option>Ethiopia</option>
-                                                        <option>Gabo</option>
-                                                        <option>Gambia</option>
-                                                        <option>Ghana</option>
-                                                        <option>Guinea</option>
-                                                        <option>Guinea-Bissau</option>
-                                                        <option>Kenya</option>
-                                                        <option>Lesotho</option>
-                                                        <option>Liberia</option>
-                                                        <option>Lybia</option>
-                                                        <option>Madagascar</option>
-                                                        <option>Malawi</option>
-                                                        <option>Mali</option>
-                                                        <option>Mauritania</option>
-                                                        <option>Mauritius</option>
-                                                        <option>Morocco</option>
-                                                        <option>Mozambique</option>
-                                                        <option>Namibia</option>
-                                                        <option>Niger</option>
-                                                        <option>Nigeria</option>
-                                                        <option>Rwanda</option>
-                                                        <option>Sao Tome and Principe</option>
-                                                        <option>Senegal</option>
-                                                        <option>Seychelles</option>
-                                                        <option>Sierra Leone</option>
-                                                        <option>Somalia</option>
-                                                        <option>South Africa</option>
-                                                        <option>South Sudan</option>
-                                                        <option>Sudan</option>
-                                                        <option>Tanzania</option>
-                                                        <option>Togo</option>
-                                                        <option>Tunisia</option>
-                                                        <option>Uganda</option>
-                                                        <option>Zambia</option>
-                                                        <option>Zimbabwe</option>
-                                                        <option>Wakanda</option>
+                                                    <?php
+                                                    for ($x = 0; $x <= sizeOf($continent[2]); $x++){
+                                                    $output="<option>".$continent[2][$x]."</option>";
+                                                    echo $output;
+                                                    }
+                                                    ?>
                                                     </datalist>
             
                                                     <datalist id="Asian">
-                                                        <option>Afghanistan</option>
-                                                        <option>Armenia</option>
-                                                        <option>Azerbaijan</option>
-                                                        <option>Bahrain</option>
-                                                        <option>Bangladesh</option>
-                                                        <option>Bhutan</option>
-                                                        <option>Brunei</option>
-                                                        <option>Cambodia</option>
-                                                        <option>China</option>
-                                                        <option>Cyprus</option>
-                                                        <option>Georgia</option>
-                                                        <option>India</option>
-                                                        <option>Indonesia</option>
-                                                        <option>Iran</option>
-                                                        <option>Iraq</option>
-                                                        <option>Israel</option>
-                                                        <option>Japan</option>
-                                                        <option>Jordan</option>
-                                                        <option>Kazakhstan</option>
-                                                        <option>Kuwait</option>
-                                                        <option>Kyrgyztan</option>
-                                                        <option>Laos</option>
-                                                        <option>Lebanon</option>
-                                                        <option>Malaysia</option>
-                                                        <option>Maldives</option>
-                                                        <option>Mongolia</option>
-                                                        <option>Myanmar</option>
-                                                        <option>Nepal</option>
-                                                        <option>North Korea</option>
-                                                        <option>Oman</option>
-                                                        <option>Pakistan</option>
-                                                        <option>Palestine</option>
-                                                        <option>Philippines</option>
-                                                        <option>Qatar</option>
-                                                        <option>Russia</option>
-                                                        <option>Saudi Arabia</option>
-                                                        <option>Singapore</option>
-                                                        <option>South Korea</option>
-                                                        <option>Sri Lanka</option>
-                                                        <option>Syria</option>
-                                                        <option>Taiwan</option>
-                                                        <option>Tajikistan</option>
-                                                        <option>Thailand</option>
-                                                        <option>Timor-Leste</option>
-                                                        <option>Turkey</option>
-                                                        <option>Turkmenistan</option>
-                                                        <option><abbr title="United Arab Emirates">UAE</abbr></option>
-                                                        <option>Uzbekistan</option>
-                                                        <option>Vietnam</option>
-                                                        <option>Yemen</option>
-            
+                                                    <?php
+                                                    for ($x = 0; $x <= sizeOf($continent[3]); $x++){
+                                                    $output="<option>".$continent[3][$x]."</option>";
+                                                    echo $output;
+                                                    }
+                                                    ?>
                                                     </datalist>
             
                                                     <datalist id="Australian">
-                                                        <option>Australia</option>
-                                                        <option>Fiji</option>
-                                                        <option>Kiribati</option>
-                                                        <option>Marshall Islands</option>
-                                                        <option>Micronesia</option>
-                                                        <option>Nauru</option>
-                                                        <option>New Zealand</option>
-                                                        <option>Palau</option>
-                                                        <option>Papua New Guinea</option>
-                                                        <option>Samoa</option>
-                                                        <option>Solomon Islands</option>
-                                                        <option>Tonga</option>
-                                                        <option>Tuvalu</option>
-                                                        <option>Vanuatu</option>
+                                                    <?php
+                                                    for ($x = 0; $x <= sizeOf($continent[4]); $x++){
+                                                    $output="<option>".$continent[4][$x]."</option>";
+                                                    echo $output;
+                                                    }
+                                                    ?>
                                                     </datalist>
                                                     <input type="text" list="European" class="text required highlightable" name="country" id="country">
                                                 </div>
