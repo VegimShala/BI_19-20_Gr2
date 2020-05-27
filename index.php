@@ -1,7 +1,7 @@
 <?php
 // Initialize the session
 session_start();
- 
+require_once "config.php";
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: login.php");
@@ -17,6 +17,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="js/link.js"></script>
     <link rel="icon" href="images/flag.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <title>Welcome to Kosovo!</title>
     <link rel="stylesheet" href="css/main.css">
@@ -29,7 +30,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
     </div>
     <div class="wrapper">
-        <header id="entrance1">
+    <header id="entrance1">
             <p>Kosovo</p>
             <nav>
                 <ul>
@@ -43,7 +44,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             <ul>
                                 <li><a href="Feedback.html">Feedback</a></li>
                                 <li><a href="login.html">Log in</a></li>
-                                <li><a href="logout.php">Log out</a></li>
                             </ul>
                         </div>
                     </li>
@@ -75,58 +75,39 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             </div>
         </header>
         <div id="body">
+    
+            <div class="search" style="margin-top:3%"> 
+                <form class="example" action="" style="margin:auto;max-width:500px">
+                    <input type="text" placeholder="Search.." name="search2">
+                </form>
+            </div>
+            
             <div id="services">
-                <a href="#" class="forma">
-                    <div class="service">
-                        <img src="images/pri4.jpg" alt="foto1">
-                        <div class="text2">
-                            <h1>Swiss Diamond</h1>
-                            <p><strong>Address: </strong> <em>Sheshi Nëna Terezë, Prishtinë 10000</em><br />
-                                <strong>Phone: </strong> <em>+383 38 220 000</em>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="#" class="forma">
-                    <div class="service">
-                        <img src="images/emerald.jpg" alt="foto1">
-
-                        <div class="text2">
-                            <h1>Emerald Hotel</h1>
-                            <p>
-                                <strong>Address: </strong> <em>Prishtina-Skopje Highway, 10000</em><br />
-                                <strong>Phone: </strong> <em>+383 38 588 888</em>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="forma">
-                    <div class="service">
-                        <img src="images/garden.jpg" alt="foto1">
-
-                        <div class="text2">
-                            <h1>Hotel Garden</h1>
-                            <p>
-                                <strong>Address: </strong> <em>Tahir Zajmi, Prishtinë 10000</em><br />
-                                <strong>Phone: </strong> <em>+383 45 717 177</em>
-                            </p>
-                        </div>
-                    </div>
-                </a>
-                <a href="#" class="forma">
-                    <div class="service">
-                        <img src="images/sharr5.jpg" alt="foto1">
-
-                        <div class="text2">
-                            <h1>Sharr Prevalle</h1>
-                            <p>
-                                <strong>Address: </strong> <em>Prizren, Prevallë 20000</em><br />
-                                <strong>Phone: </strong> <em>+383 44 662 674</em>
-                            </p>
-                        </div>
-                    </div>
-                </a>
+                <?php
+                    $sql ="SELECT  hotels.name,hotels.address,hotels.tel,hotels.logo FROM hotels";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            echo "<a  id='forma'>
+                            <div class='service'>
+                            <img src=".$row["logo"]." alt='foto1'>
+                            <div class='text2'>
+                              <h1>".$row["name"]."</h1>
+                              <p><strong>Address</strong> <em>".$row["address"]."</em><br />
+                                  <strong>Phone: </strong> <em>".$row["tel"]."</em>
+                              </p>
+                          </div>
+                      </div>
+                  </a>";
+                        }
+                    } else {
+                        echo "No hotels";
+                    }
+                    
+                    $conn->close();
+                ?>
+                                
             </div>
             <div class="hover_bkgr_fricc">
                 <span class="helper"></span>
@@ -228,7 +209,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
             </div>
         </div>
-
+        
         <footer>
             <div>
                 <div class="footerDivs" id="blog">
@@ -280,10 +261,31 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         </footer>
 
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
     <script src="js/main.js"></script>
     <script src="js/contactval.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.example input[type="text"]').on("keyup input", function(){
+        /* Get input value on change */
 
+        var inputVal = $(this).val();
+        console.log(inputVal);
+        var resultDropdown = $("#services");
+        if(inputVal.length){
+            $.get("backend-search.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+    });
+    
+   
+});
+</script>
 </body>
 
 </html>
