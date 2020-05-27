@@ -57,7 +57,7 @@ background: -moz-radial-gradient(ellipse at top, #e66465, transparent),
 
 #col
 {
-    margin-bottom: 70px;
+    margin-bottom: 0;
     
 }
 
@@ -429,4 +429,12 @@ word-wrap: break-word;       /* Internet Explorer 5.5+ */
 white-space: -webkit-pre-wrap; /* Newer versions of Chrome/Safari*/
 word-break: break-all;
 white-space: normal;
+}
+
+#plus
+{
+    margin-left:130px;
+    margin-top: -30px;
+    margin-bottom: 20px;
+
 }
