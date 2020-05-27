@@ -3,8 +3,11 @@
 session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+  header("location: index.php");
+  exit;
+}
 
- 
 // Include config file
 require_once "config.php";
  
@@ -34,7 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // Prepare a select statement
         $sql = "SELECT email, pass FROM users WHERE email = ?";
         
-        if($stmt = mysqli_prepare($link, $sql)){
+        if($stmt = mysqli_prepare($conn, $sql)){
             // Bind variables to the prepared statement as parameters
             mysqli_stmt_bind_param($stmt, "s", $param_email);
             
@@ -64,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
                             
                             // Redirect user to welcome page
-                            header("location: welcome.php");
+                            header("location: index.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.".$hashed_password.$password;
@@ -84,7 +87,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     }
     
     // Close connection
-    mysqli_close($link);
+    mysqli_close($conn);
 }
 ?>
 
@@ -158,14 +161,16 @@ span.psw {
             </nav>
             <h1 style="text-align: center;">Login</h1>
         </header>
-        <form action="#" method="post">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="container" >
             <label for="uname" id="some" ><b> User Email</b></label>
             <input type="email"name='email' placeholder="Enter Email" id="email" >
             <p id="msg" style="color:darkblue; margin:1%"></p>
+            <p> <?php echo $email_err; ?></p>
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" id="psw" required>
                 <p id="warn" style="color:darkblue; margin:1%"></p>
+                <p> <?php echo $password_err; ?></p>
             <button id="bt1" type="submit" onclick="CheckPassword()">Login</button>
             <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
