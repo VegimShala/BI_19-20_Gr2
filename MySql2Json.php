@@ -1,6 +1,6 @@
 <?php
-
 require_once "config.php"; 
+
 $query = "SELECT * FROM Users;";
 $result = mysqli_query($conn,$query);
 $user_data = array();

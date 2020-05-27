@@ -20,8 +20,13 @@ require_once "config.php";
 //     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
 //     name VARCHAR(30) NOT NULL,
 //     address VARCHAR(30) NOT NULL,
-//     tel VARCHAR(50)
+//     tel VARCHAR(50),
+//     ID_Qyteti INT(6) UNSIGNED,
+//     Logo VARCHAR(20),
+//     FOREIGN KEY(ID_Qyteti) REFERENCES Cities(id)
 //     ); ";
+
+
 
     
 //     if ($conn->query($sql) === TRUE) {
@@ -98,6 +103,7 @@ require_once "config.php";
 //     room  INT(6) UNSIGNED,
 //     userId VARCHAR(20),
 //     hotelId INT(6) UNSIGNED,
+//     price VARCHAR(30),
 //     FOREIGN KEY (userId) REFERENCES Users(id),
 //     FOREIGN KEY (hotelId) REFERENCES Hotels(id)
 //     ); ";
@@ -187,5 +193,31 @@ require_once "config.php";
 //   } else {
 //     echo "Error updating table Users: " . $conn->error;
 //   }
+
+
+// $sql14 = "ALTER TABLE Services ADD Logo VARCHAR(50) NOT NULL ";
+// if ($conn->query($sql14) === TRUE) {
+//     echo "Table Services is altered";
+//   } else {
+//     echo "Error altering table Services: " . $conn->error;
+//   }
+
+// $sql15 = "ALTER TABLE Hotels ADD COLUMN ID_Qyteti INT(6) UNSIGNED;
+//           ALTER TABLE Hotels ADD COLUMN Logo VARCHAR(20);
+//           ALTER TABLE Hotels ADD FOREIGN KEY qyteti REFERENCES Cities(id);";
+//           if ($conn->multi_query($sql15) === TRUE) {
+//     echo "Table Services is altered";
+//   } else {
+//     echo "Error altering table Services: " . $conn->error;
+//   }
+
+$sql16 = "ALTER TABLE Places Modify Logo VARCHAR(100);
+	  ALTER TABLE Services MODIFY Logo VARCHAR(100);
+	  ALTER TABLE Tour MODIFY src VARCHAR(100); ";
+if ($conn->multi_query($sql16) === TRUE) {
+    echo "Table Places is altered";
+  } else {
+    echo "Error altering table Places: " . $conn->error;
+  }
 $conn->close();
 ?>
