@@ -181,11 +181,11 @@ require_once "config.php";
 //     echo "Error altering table Users: " . $conn->error;
 //   }
 
-$sql13 = "UPDATE Users SET lv = 'User' WHERE 1=1";
-if ($conn->query($sql13) === TRUE) {
-    echo "Table Users is updated";
-  } else {
-    echo "Error updating table Users: " . $conn->error;
-  }
+// $sql13 = "UPDATE Users SET lv = 'User' WHERE 1=1";
+// if ($conn->query($sql13) === TRUE) {
+//     echo "Table Users is updated";
+//   } else {
+//     echo "Error updating table Users: " . $conn->error;
+//   }
 $conn->close();
 ?>
