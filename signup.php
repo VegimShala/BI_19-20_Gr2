@@ -150,7 +150,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $addpass=trim($_POST["password"]);
 
         
-         $id=strtoupper(substr($addname,0,1)).strtoupper(substr($addlastname,0,1)).strtoupper(substr($addusername,0,1)).strtoupper(substr($addusername,$addusername.length-1));
+         $id=strtoupper(substr($addname,0,1)).strtoupper(substr($addlastname,0,1)).strtoupper(substr($addusername,0,1)).strtoupper(substr($addusername,sizeOf($addusername)-1));
 
                          
 

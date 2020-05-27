@@ -168,12 +168,24 @@ require_once "config.php";
 // ADD price VARCHAR(30);
 //  ";
 
-//     if ($conn->query($sql11) === TRUE) {
-//         echo "Table bookings is altered";
-//       } else {
-//         echo "Error creating table: " . $conn->error;
-//       }
+    // if ($conn->query($sql11) === TRUE) {
+    //     echo "Table bookings is altered";
+    //   } else {
+    //     echo "Error creating table: " . $conn->error;
+    //   }
 
+// $sql12 = "ALTER TABLE Users ADD lv VARCHAR(5) NOT NULL CHECK (lv IN ('User','Admin'));";
+// if ($conn->query($sql12) === TRUE) {
+//     echo "Table Users is altered";
+//   } else {
+//     echo "Error altering table Users: " . $conn->error;
+//   }
 
+$sql13 = "UPDATE Users SET lv = 'User' WHERE 1=1";
+if ($conn->query($sql13) === TRUE) {
+    echo "Table Users is updated";
+  } else {
+    echo "Error updating table Users: " . $conn->error;
+  }
 $conn->close();
 ?>

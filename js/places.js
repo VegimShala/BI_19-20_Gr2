@@ -90,7 +90,6 @@ function showNextPicture(place,index,k)
         ["images/places/brezovica1.jpg","images/places/brezovica5.jpg","images/places/brezovica3.jpg","images/places/brezovica4.jpg"],
         ["images/places/rugova1.jpg","images/places/rugova7.jpg","images/places/rugova3.jpg","images/places/rugova6.jpg"],
         ["images/places/prevalla4.jpg","images/places/prevalla5.jpg","images/places/prevalla1.jpg","images/places/prevalla3.jpg"],
-        
     ];
     if(current == "shrink") {var s = document.getElementsByClassName("fotot"); current = "miniSlideShow";}
     else { var s = document.getElementsByClassName("fotot"); current = "shrink";}
@@ -101,7 +100,6 @@ function showNextPicture(place,index,k)
     s[place].src = pictures[place][index];
     if(current=="miniSlideShow") s = switchAll(s,"miniSlideShow","shrink");
     else s = switchAll(s,"shrink","miniSlideShow");
-
 }
 
 function switchAll(array,str,str2)
