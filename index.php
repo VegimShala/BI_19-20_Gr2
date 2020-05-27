@@ -84,7 +84,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
             
             <div id="services">
                 <?php
-                    $sql ="SELECT  hotels.name,hotels.address,hotels.tel,hotels.logo FROM hotels";
+                    $sql ="SELECT  hotels.name,hotels.address,hotels.tel,hotels.logo FROM hotels where hotels.id<5";
                     $result = $conn->query($sql);
                     if ($result->num_rows > 0) {
                         // output data of each row

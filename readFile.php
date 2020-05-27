@@ -79,8 +79,8 @@ class ReadFile
     // $readHotels->readJSONFile();
     // $readPhotos = new ReadFile("Photos");
     // $readPhotos->readJSONFile();
-    $readPlaces = new ReadFile("Places");
-    $readPlaces->readJSONFile();
+    // $readPlaces = new ReadFile("Places");
+    // $readPlaces->readJSONFile();
     // $readServices = new ReadFile("Services");
     // $readServices->readJSONFile();
     // $readTour = new ReadFile("Tour");
