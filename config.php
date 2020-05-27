@@ -1,13 +1,13 @@
 <?php
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-<<<<<<< HEAD
+
 // define('DB_SERVER', 'localhost');
 define('DB_SERVER', 'localhost:1235');
-=======
+
 //define('DB_SERVER', 'localhost');
 // define('DB_SERVER', 'localhost:1235');
->>>>>>> 17596f9648339f0052df82c56b5c31b85547f513
+
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_NAME', 'travelkosovo');
