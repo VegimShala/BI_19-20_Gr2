@@ -1,3 +1,70 @@
+<?php
+require_once "config.php";
+
+$services=$img= "";
+$services_err=$img_err= "";
+$addservices= $addimg="";
+$imgChanged=false;
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
+
+ 
+    // Validate services
+    if(empty(trim($_POST["services"]))){
+        $services_err = "Please enter a services.";
+
+         $services = trim($_POST["services"]);
+             $addservices=$services;
+   
+    }
+
+
+    
+ if(!empty(trim($_POST["img"]))){
+      
+      $imgChanged=true;
+      $img ="images/Services/".$_POST["img"];
+        
+    }
+echo $img;
+
+        // Check input errors before inserting in database
+    if(empty($services_err) )   
+    {
+
+        if ($imgChanged) 
+        {
+          $sql ="UPDATE SERVICES SET Logo = '$img' WHERE name = '$services'";
+
+         if(mysqli_query($conn, $sql)){
+    echo "Records changed successfully.";
+        //header("location: tour.php");
+    } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
+    }
+                
+        
+    }
+
+   // header("location: tour.php");
+
+
+
+        }
+
+     
+     
+                         
+
+        
+    
+    // Close connection
+    mysqli_close($conn);
+}
+
+
+?>
 
 
 
@@ -104,35 +171,25 @@ span.psw {
                 <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="container" >
 
-            <label for="services" id="some" ><b>Select activity</b></label>
-             <select id="services" type="text" name="activity" >
-            <option selected="selected" ></option>
-            <option value="Activities">Activities</option>
-            <option value="Festivals">Festivals</option>
-            <option value="Events">Events</option>
-            <option value="Monuments">Monuments</option>
-            <option value="Food and Drink">Food and Drink</option>
-             </select>
 
                      <label for="fname" id="some" ><b>Name of service</b></label>
              <select id="fname" type="text" name="services" >
             <option selected="selected" ></option>
             <option value="Tour to Rugova">Tour to Rugova</option>
             <option value="Tour to Ulpiana">Tour to Ulpiana</option>
-            <option value="Events">Sunny Hill Festival</option>
-            <option value="Monuments">Pri Film Fest</option>
-            <option value="Food and Drink">The Lily of Prizren</option>
+            <option value="Sunny Hill Festival">Sunny Hill Festival</option>
+            <option value="Pri Film Fest">Pri Film Fest</option>
+            <option value="The Lily of Prizren">The Lily of Prizren</option>
 
-             <option value="Tour to Rugova">17 February</option>
-            <option value="Tour to Ulpiana">Prite nShesh</option>
-            <option value="Events">DOKUTECH</option>
-            <option value="Monuments">Lidhja e Prizrenit</option>
-            <option value="Food and Drink">Lidhja e Prizrenit</option>
-             <option value="Tour to Rugova">Mosque of Sinan Pasha</option>
-            <option value="Tour to Ulpiana">National Museum of Kosovo</option>
-            <option value="Events">Famous restaurants in Prizren</option>
-            <option value="Monuments">Famous restaurants in Peja</option>
-            <option value="Food and Drink">The Lily of Prizren</option>
+             <option value="17 February">17 February</option>
+            <option value="Prite nShesh">Prite nShesh</option>
+            <option value="DOKUTECH">DOKUTECH</option>
+            <option value="Lidhja e Prizrenit">Lidhja e Prizrenit</option>
+             <option value="Mosque of Sinan Pasha">Mosque of Sinan Pasha</option>
+            <option value="National Museum of Kosovo">National Museum of Kosovo</option>
+            <option value="Famous restaurants in Prizren">Famous restaurants in Prizren</option>
+            <option value="Famous restaurants in Peja">Famous restaurants in Peja</option>
+            <option value="The Lily of Prizren">The Lily of Prizren</option>
              </select>
 
           
