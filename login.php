@@ -61,8 +61,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
-                      
+                            
                             $_SESSION["email"] = $email;       
+
+                            require_once "config.php";
+                            $sql1 = "SELECT * FROM Users WHERE email = '$email' AND lv = 'Admin'";
+                            $result = $conn->query($sql1);
+                            if ($result->num_rows > 0) {
+                               $_SESSION["isAdmin"] = "true";
+                            }
+                            else
+                            {
+                                if(isset($_SESSION["isAdmin"]))
+                                {
+                                    unset($_SESSION["isAdmin"]);
+                                }
+                            }
                                
 
                             
@@ -145,16 +159,16 @@ span.psw {
             <p>Kosovo</p>
             <nav>
                 <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="About.html">ABOUT</a></li>
-                    <li><a href="Gallery.html">GALLERY</a></li>
-                    <li><a href="Places.html">PLACES</a></li>
-                    <li><a href="Services.html">SERVICES</a></li>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="About.php">ABOUT</a></li>
+                    <li><a href="Gallery.php">GALLERY</a></li>
+                    <li><a href="Places.php">PLACES</a></li>
+                    <li><a href="Services.php">SERVICES</a></li>
                     <li ><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
                             <ul >
                             <li><a href="Feedback.html">Feedback</a></li>
-                            <li><a href="login.html" id="login">Log in</a></li>
+                            <li><a href="login.php" id="login">Log in</a></li>
                         </ul>
                     </div>
                     </li>
