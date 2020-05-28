@@ -688,7 +688,7 @@ and open the template in the editor.
                     </div>
                     <div class="footerDivs" id="contact">
                         <p class="divHeader">Contact Us</p>
-                        <form method="post" action="http://www.google.com" id="form2">
+                        <form method="post" action="" id="form2">
                             <input type="text" name="name" placeholder="Full Name" class="required"/>
                             <input type="text" name="email" placeholder="Email Address" class="required"/>
                             <input type="text" name="subject" placeholder="Subject"class="required"/>
