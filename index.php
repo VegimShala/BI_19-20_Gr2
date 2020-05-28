@@ -156,7 +156,7 @@ require_once "config.php";
                         </div>
                     </a>
                 </div>
-                <div id="f2">
+                <div style="margin-bottom: 50px" id="f2">
                     <a href="images/peja.jpg" target="_blank">
                         <div class="feature2">
                             <img src="images/peja.jpg" alt="foto1">
@@ -182,6 +182,8 @@ require_once "config.php";
                         </div>
                     </a>
                 </div>
+                <?php 
+if(isset($_SESSION["loggedin"])){  ?>
                 <div id="line">
                 <fieldset>
                     <legend>
@@ -190,9 +192,8 @@ require_once "config.php";
                 </fieldset>
                </div>
         </div>
-           
-            <?php 
-if(isset($_SESSION["loggedin"])){  
+           <?php
+
    if(isset($_COOKIE['recent'])){ 
       $sql ="SELECT * FROM services where name='".$_COOKIE['recent']."'";
     $result = $conn->query($sql);
