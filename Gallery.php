@@ -3,10 +3,7 @@
 session_start();
 require_once "config.php";
 // Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    header("location: login.php");
-    exit;
-}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,12 +36,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                     <li><a href="Services.php">SERVICES</a></li>
                     <li><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
-                            <ul>
-                                <li><a href="Feedback.php">Feedback</a></li>
-                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                        <ul>
+                              
+                                <?php if(!isset($_SESSION["loggedin"])){
                                     ?>
                                 <li><a href="login.php">Log in</a></li><?php } else {?>
-                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
+                                    <li><a href="logout.php">Log out</a></li><?php }?>
                             </ul>
                         </div>
                     </li>
