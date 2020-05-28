@@ -10,7 +10,8 @@ $addfullname=$addusername= $addpass=$addemail=$id=$addname=$addlastname="";
 
 
 // Processing form data when form is submitted
-if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_SERVER["REQUEST_METHOD"] == "POST")
+{
 
  
     // Validate username
@@ -147,7 +148,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // }
     
     // Check input errors before inserting in database
-    if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
+    if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
+    {
         $addpass=trim($_POST["password"]);
 
          $count=(int)(rand(1,1000));
@@ -247,23 +249,19 @@ span.psw {
             <p>Kosovo</p>
             <nav>
                 <ul>
-                    <li><a href="index.php">HOME</a></li>
-                    <li><a href="About.php" id="about1">ABOUT</a></li>
-                    <li><a href="Gallery.php">GALLERY</a></li>
-                    <li><a href="Places.php">PLACES</a></li>
-                    <li><a href="Services.php">SERVICES</a></li>
-                    <li><a href="#" id="drop">MORE</a>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="About.html">ABOUT</a></li>
+                    <li><a href="Gallery.html">GALLERY</a></li>
+                    <li><a href="Places.html">PLACES</a></li>
+                    <li><a href="Services.html">SERVICES</a></li>
+                    <li ><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
-                            <ul>
-                                <li><a href="Feedback.php">Feedback</a></li>
-                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-                                    ?>
-                                <li><a href="login.php">Log in</a></li><?php } else {?>
-                                    <li><a id="login" href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
-                            </ul>
-                        </div>
+                            <ul >
+                            <li><a href="Feedback.html">Feedback</a></li>
+                            <li><a href="login.html" id="login">Log in</a></li>
+                        </ul>
+                    </div>
                     </li>
-                                </ul>
             </nav>
             <h1 style="text-align: center;">Login</h1>
         </header>
@@ -271,22 +269,21 @@ span.psw {
         <div class="container" >
             <label for="fname" id="some" ><b>Firstname</b></label>
             <input type="text" placeholder="Firstname" id="fname" name="name" >
-            <p id="msg" style="color:darkblue; margin:1%"></p>
-             <p><?php echo $name_err; ?></p>
+           
+             <p id="msg" style="color:darkblue; margin:1%"><?php echo $name_err; ?></p>
 
             <label for="lname" id="some" ><b>Lastname</b></label>
             <input type="text" placeholder="Lastname" id="lname"  name="lastname" >
-            <p><?php echo $name_err; ?></p>
+            <p id="msg" style="color:darkblue; margin:1%" ><?php echo $name_err; ?></p>
             <label for="uname" id="some" ><b>Username</b></label>
             <input type="text" placeholder="Username" id="uname"  name="username" >
-            <p><?php echo $username_err; ?></p>
+            <p id="msg" style="color:darkblue; margin:1%" ><?php echo $username_err; ?></p>
             <label for="user" id="some" ><b>Email</b></label>
             <input type="email" placeholder="Enter Email" id="user" name="email">
-            <p> <?php echo $email_err; ?></p>
+            <p id="msg" style="color:darkblue; margin:1%"> <?php echo $email_err; ?></p>
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" id="psw" required>
-                <p id="warn" style="color:darkblue; margin:1%"></p>
-                <p> <?php echo $password_err; ?></p>
+                <p id="msg" style="color:darkblue; margin:1%"> <?php echo $password_err; ?></p>
             <button id="bt1" type="submit" onclick="CheckPassword()">Sign Up</button>
             <label>
            
@@ -296,33 +293,33 @@ span.psw {
         </form>
     </div>
     <script>
-        function CheckPassword() 
-    { 
-    const inputtxt=document.getElementById('psw');
-    const inputem=document.getElementById('email');
-    const em=document.getElementById('msg');
+        // function CheckPassword() 
+    // { 
+    // const inputtxt=document.getElementById('psw');
+    // const inputem=document.getElementById('email');
+    // const em=document.getElementById('msg');
 
-   try{
-    if(inputem.value==''){
-        inputem.style.borderBottom='3px solid darkblue'
-        throw "Input empty"
-    }}
-    catch(err){ msg.innerHTML=err}
+   // try{
+   //  if(inputem.value==''){
+   //      inputem.style.borderBottom='3px solid darkblue'
+   //      throw "Input empty"
+   //  }}
+   //  catch(err){ msg.innerHTML=err}
     
-    var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-    if(inputtxt.value.match(decimal)) 
-    { 
-       return true;
-    }
-    else
-    { 
-    document.getElementById('warn').innerHTML='Password must contain at least 8 characters,one uppercase letter one digit and one special character';
-    inputtxt.style.borderBottom='3px solid darkblue'
-    return false;
-    }
-    }
+   //  var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
+   //  if(inputtxt.value.match(decimal)) 
+   //  { 
+   //     return true;
+   //  }
+   //  else
+   //  { 
+   //  document.getElementById('warn').innerHTML='Password must contain at least 8 characters,one uppercase letter one digit and one special character';
+   //  inputtxt.style.borderBottom='3px solid darkblue'
+   //  return false;
+   //  }
+    // }
     
     
-</script>
+ </script> 
 </body>
 </html>

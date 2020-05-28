@@ -12,12 +12,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
  
     // Validate services
     if(empty(trim($_POST["services"]))){
-        $services_err = "Please enter a services.";
+        $services_err = "Please enter a services.";}
+        else {
 
          $services = trim($_POST["services"]);
              $addservices=$services;
+             echo $services;}
    
-    }
+    
 
 
     
@@ -35,11 +37,12 @@ echo $img;
 
         if ($imgChanged) 
         {
-          $sql ="UPDATE SERVICES SET Logo = '$img' WHERE name = '$services'";
+          $sql ="UPDATE SERVICES SET Logo = '$img' WHERE name = '$addservices'";
+             // $sql = "INSERT INTO services (name,Logo) VALUES ('$addservices','$img')";
 
          if(mysqli_query($conn, $sql)){
     echo "Records changed successfully.";
-        //header("location: tour.php");
+        header("location: tour.php");
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
@@ -47,15 +50,9 @@ echo $img;
         
     }
 
-   // header("location: tour.php");
+   header("location: tour.php");
 
-
-
-        }
-
-     
-     
-                         
+        }                   
 
         
     
@@ -191,13 +188,12 @@ span.psw {
             <option value="Famous restaurants in Peja">Famous restaurants in Peja</option>
             <option value="The Lily of Prizren">The Lily of Prizren</option>
              </select>
+               <p id="msg" style="color:darkblue; margin:1%" ><?php echo $services_err; ?></p>
 
           
              <label for="img" id="some"><b>Select image:</b></label>
             <input type="file" id="img" name="img" accept="image/*">
-
-                <p id="warn" style="color:darkblue; margin:1%"></p>
-            <!--     <p> <?php echo $password_err; ?></p> -->
+  
             <button id="bt1" type="submit" >Edit Service</button>
             <label>
            
