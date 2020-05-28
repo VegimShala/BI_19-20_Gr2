@@ -118,14 +118,50 @@
                 </div>
             <div id="details">
                 <h2 id="check" >Republic of Kosovo</h2>
+                <form action="cities.php">
+                    <label for="cities"><b>Select City</b></label>
+                    <select id="cities" type="text" name="cities" style="padding:5px 15px;margin-left:3%">
+                        <option value="2">Prishtine</option>
+                        <option value="3">Prizren</option>
+                        <option value="4">Gjakove</option>
+                        <option value="5">Peje</option>
+                        <option value="6">Gjilan</option>
+                        <option value="7">Mitrovice</option>
+                        <option value="8">Shterpce</option>
+                        <option value="9">Lipjan</option>
+                    </select>
+                </form>
+                <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+                <script type="text/javascript">
+                $(document).ready(function(){
+                    $('#cities').on("change", function(){
+                        /* Get input value on change */
+
+                        var inputVal = $(this).val();
+                        console.log(inputVal);
+                        var resultDropdown = $(".info");
+                        if(inputVal){
+                            $.get("cities.php", {term: inputVal}).done(function(data){
+                                // Display the returned data in browser
+                                resultDropdown.html(data);
+                            });
+                        } else{
+                            resultDropdown.empty();
+                        }
+                    });
+                    
                 
-                <p><strong>Area: </strong> <em>10,887</em></p>
-                <p><strong>Population: </strong> <em>1.9 million</em></p>
-                <p><strong>Located: </strong> <em>South-Eastern Europe</em></p>
-                <p><strong>Capital City: </strong> <em>Prishtina</em></p>
-                <p><strong>Nationality: </strong> <em>Kosovar</em></p>
-                <p><strong>Valute: </strong> <em>Euro </em></p>
-                <p><strong>Language: </strong> <em>Albanian </em></p>
+                });
+                </script>
+                    <div class="info">
+                    <p><strong>Area: </strong> <em>10,887</em></p>
+                    <p><strong>Population: </strong> <em>1.9 million</em></p>
+                    <p><strong>Located: </strong> <em>South-Eastern Europe</em></p>
+                    <p><strong>Capital City: </strong> <em>Prishtina</em></p>
+                    <p><strong>Nationality: </strong> <em>Kosovar</em></p>
+                    <p><strong>Valute: </strong> <em>Euro </em></p>
+                    <p><strong>Language: </strong> <em>Albanian </em></p>
+                    </div>
             </div>
         </aside>
         <footer>

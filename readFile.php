@@ -1,21 +1,17 @@
 <?php
-
 class ReadFile
 {
     private $filename;
     private $table;
-
     public function __construct($table)
     {
         $this->filename = "JSON/$table.json";
         $this->table = $table;
     }
-
     public function __destruct()
     {
         echo "The read file was: {$this->filename}";
     }
-
     public function readJSONFile()
     {
         require "config.php";
@@ -53,20 +49,15 @@ class ReadFile
                 case "Tour":
                     $sql .= " INSERT INTO Tour(id,src,header,content,idserv) VALUES('".$row["id"]."','".$row["src"]."','".$row["header"]."','".$row["content"]."','".$row["idserv"]."');";
                      break;
-
             }
-            
         }
         if ($conn->multi_query($sql) === TRUE) {
             echo "The data in table $this->table are successfully inserted";
             } else {
             echo "Error while trying to insert data in the table $this->table " . $conn->error;
             }
-        
-        
     }
 }
-
     // $readUsers = new ReadFile("Users");
     // $readUsers->readJSONFile();
     // $readBookings = new ReadFile("Bookings");
@@ -78,12 +69,11 @@ class ReadFile
     // $readHotels = new ReadFile("Hotels");
     // $readHotels->readJSONFile();
     // $readPhotos = new ReadFile("Photos");
-    // // $readPhotos->readJSONFile();
+    // $readPhotos->readJSONFile();
     // $readPlaces = new ReadFile("Places");
     // $readPlaces->readJSONFile();
     // $readServices = new ReadFile("Services");
     // $readServices->readJSONFile();
     // $readTour = new ReadFile("Tour");
     // $readTour->readJSONFile();
-
 ?>
