@@ -5,7 +5,7 @@ require_once "config.php";
  
 // Define variables and initialize with empty values
 
-
+$category_err =$servicename_err = $img_err = "";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -40,7 +40,7 @@ $serviceImg = "";
     {
         $sqlA = "INSERT INTO Services(id,name,type,Logo) VALUES (NULL,'$serviceName','$category','$serviceImg');";
         if ($conn->query($sqlA) === TRUE) {
-            echo "Table Users created successfully";
+            // echo "Table Users created successfully";
           } else {
             echo "Error creating table: " . $conn->error;
           }
@@ -48,7 +48,7 @@ $serviceImg = "";
     }
     else
     {
-        echo $category_err ."<br>". $servicename_err ."<br>". $img_err;
+        // echo $category_err ."<br>". $servicename_err ."<br>". $img_err;
     }
     
 
@@ -142,64 +142,50 @@ span.psw {
                                 <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                                     ?>
                                 <li><a href="login.php">Log in</a></li><?php } else {?>
-                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
+                                <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
                             </ul>
                         </div>
                     </li>
-                                </ul>
+                            </ul>
             </nav>
 
-            <!-- <h1>Enjoy Your Dream Vacation</h1> -->
+          
             <canvas id="myCanvas" width="900" height="200">
                 Your browser does not support the canvas element.
             </canvas>
-          <!--   <script>
-                var canvas = document.getElementById("myCanvas");
-                var ctx = canvas.getContext("2d");
-                var grd = ctx.createLinearGradient(0, 190, 900, 190);
-                grd.addColorStop(0, "darkblue");
-                grd.addColorStop(1, "white");
-                ctx.fillStyle = grd;
-                ctx.font = "45px Arial";
-                ctx.fillStyle = grd;
-                ctx.fillText("Enjoy Your Dream Vacation", 310, 190);
-            </script>
- -->
-           <!--  <h3>Travel to the any corner of Kosovo, without going around in circles.</h3> -->
+   
         </header>
 
-                <form action="#" method="post">
-        <div class="container" >
+            <form action="#" method="post">
+            <div class="container" >
 
             <label for="services" id="some" ><b>Select category</b></label>
-             <select id="services" type="text" name="Category" placeholder="hhh">
-             <?php
-             $sqlD = "SELECT DISTINCT type FROM Services;";
-             $result = $conn->query($sqlD);
-            if ($result->num_rows > 0) {
-                // output data of each row
-                while($row = $result->fetch_assoc()) {
-                    $t = $row["type"];
-                    echo "<option value='$t'>$t</option>";
-                }
-            }
-            else{
-                echo "<option> No categories were found </option>";
-            }
-            ?>
-             </select>
+                     <select id="services" type="text" name="Category" placeholder="hhh">
+                     <?php
+                     $sqlD = "SELECT DISTINCT type FROM Services;";
+                     $result = $conn->query($sqlD);
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            $t = $row["type"];
+                            echo "<option value='$t'>$t</option>";
+                        }
+                    }
+                    else{
+                        echo "<option> No categories were found </option>";
+                    }
+                    ?>
+                     </select>
+                     <p id="msg" style="color:darkblue; margin:1%" ><?php echo $category_err; ?></p>
+
             <label for="fname" id="some" ><b>Name of service</b></label>
             <input type="text" placeholder="Name of service" id="fname" name="name" >
-            <p id="msg" style="color:darkblue; margin:1%"></p>
-       <!--      <p><?php echo $name_err; ?></p> -->
-
-                      <!--  <p><?php echo $name_err; ?></p> -->
-          
-             <label for="img" id="some"><b>Select image:</b></label>
+            <p id="msg" style="color:darkblue; margin:1%" ><?php echo $servicename_err; ?></p>
+     
+            <label for="img" id="some"><b>Select image:</b></label>
             <input type="file" id="img" name="img" accept="image/*">
-
-                <p id="warn" style="color:darkblue; margin:1%"></p>
-            <!--     <p> <?php echo $password_err; ?></p> -->
+            <p id="msg" style="color:darkblue; margin:1%" ><?php echo $img_err; ?></p>
+    
             <button id="bt1" type="submit" >Add Service</button>
             <label>
            

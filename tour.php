@@ -1,10 +1,10 @@
 <?php
 // Initialize the session
 require_once "config.php";
-
+$category_err =$tourname_err = $description_err = $img_err= "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
-$category_err =$tourname_err = $description_err = $img_err "";
+
 $category = "";
 $tourname = "";
 $description = "";
@@ -48,7 +48,7 @@ else{
         $categoryId = $result["id"];
         $sqlA = "INSERT INTO Tour(id,src,header,content,idserv) VALUES (NULL,'$tourimg','$tourname','$description','$categoryId');";
         if ($conn->query($sqlA) === TRUE) {
-            echo "Table Users created successfully";
+            // echo "Table Users created successfully";
           } else {
             echo "Error creating table: " . $conn->error;
           }
@@ -57,7 +57,7 @@ else{
 
     else
     {
-        echo $category_err ."<br>". $img_err;
+        // echo $category_err ."<br>". $img_err;
     }
     
 
@@ -172,17 +172,17 @@ span.psw {
 
           <label for="fname" id="some" ><b>Tour name</b></label>
             <input type="text" placeholder="Name of characteristic" id="fname" name="name" >
-            <p id="msg" style="color:darkblue; margin:1%"></p>
+            <p id="msg" style="color:darkblue; margin:1%"> <?php echo $tourname_err; ?></p>
 
             <label for="dname" id="some" ><b>Add description</b></label>
             <input type="text" placeholder="Name of service" id="dname" name="desc" >
-            <p id="msg" style="color:darkblue; margin:1%"></p>
+            <p id="msg" style="color:darkblue; margin:1%"><?php echo $description_err; ?></p>
        
           
              <label for="img" id="some"><b>Select image:</b></label>
             <input type="file" id="img" name="img" accept="image/*">
 
-                <p id="warn" style="color:darkblue; margin:1%"></p>
+                <p id="warn" style="color:darkblue; margin:1%"><?php echo $img_err; ?></p>
            
             <button id="bt1" type="submit"  >Add Tour</button>  
 
