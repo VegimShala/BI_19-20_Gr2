@@ -2,7 +2,7 @@
 // Initialize the session
 session_start();
 require_once "config.php";
-
+echo $_SESSION["loggedin"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +39,7 @@ require_once "config.php";
                         <div id="dropdown">
                             <ul>
                                 <li><a href="Feedback.php">Feedback</a></li>
-                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                                <?php if(!isset($_SESSION["loggedin"])){
                                     ?>
                                 <li><a href="login.php">Log in</a></li><?php } else {?>
                                     <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>

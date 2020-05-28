@@ -144,10 +144,7 @@ background: -moz-radial-gradient(ellipse at top, #e66465, transparent),
 }
 
 
-#hide1, #hide2, #hide3, #hide4
-{
-    display: none;
-}
+
 
  .info 
 {display: block;

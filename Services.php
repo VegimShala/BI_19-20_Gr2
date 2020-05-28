@@ -1,3 +1,12 @@
+<?php
+// Initialize the session
+session_start();
+require_once "config.php";
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -123,8 +132,15 @@ $(document).ready(function(){
                 
             </div>
 
+            <?php 
+            
+            if(isset($_SESSION["isAdmin"]))
+            {
+                ?>
+            
             <a href="ServicesForm.php"><img id="plus" src="images/plus.png" alt="plus" style="width: 30px; height: 30px " ></a>
                 <a href="tour.php"><img src="images/edit.png" alt="edit" id="edit"  style="width: 30px; height: 30px " ></a>
+                <?php } ?>
 
         </div>
           

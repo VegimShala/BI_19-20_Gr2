@@ -1,3 +1,48 @@
+<?php
+// Include config file
+require_once "config.php";
+
+ 
+// Define variables and initialize with empty values
+
+
+
+// Processing form data when form is submitted
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+$category_err =$servicename_err = $img_err "";
+$category = "";
+$serviceName = "";
+$serviceImg = "";
+ 
+    // Validate category
+    if(empty(trim($_POST["Category"]))){
+        $category_err = "Please enter a category.";
+    } else{
+        $category = $_POST["Category"];
+        }
+    
+
+    // Validate service name
+    if(empty(trim($_POST["name"]))){
+        $servicename_err = "Please enter a service name.";
+    } else{
+        $serviceName = $_POST["name"];
+        }
+
+     // Validate service img
+     if(empty(trim($_POST["img"]))){
+        $img_err = "Please choose an image";
+    } else{
+        $serviceImg =  "Services/images/"$_POST["img"];
+        }
+    
+
+
+
+
+}
+    
+?>
 
 
 <!DOCTYPE html>
@@ -112,13 +157,21 @@ span.psw {
         <div class="container" >
 
             <label for="services" id="some" ><b>Select category</b></label>
-             <select id="categories" type="text" name="categories" placeholder="hhh">
-            <option selected="selected" ></option>
-            <option value="Activities">Activities</option>
-            <option value="Festivals">Festivals</option>
-            <option value="Events">Events</option>
-            <option value="Monuments">Monuments</option>
-            <option value="Food and Drink">Food and Drink</option>
+             <select id="services" type="text" name="Category" placeholder="hhh">
+             <?php
+             $sqlD = "SELECT DISTINCT type FROM Services;";
+             $result = $conn->query($sqlD);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $t = $row["type"];
+                    echo "<option value='$t'>$t</option>";
+                }
+            }
+            else{
+                echo "<option> No categories were found </option>";
+            }
+            ?>
              </select>
             <label for="fname" id="some" ><b>Name of service</b></label>
             <input type="text" placeholder="Name of service" id="fname" name="name" >

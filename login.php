@@ -64,7 +64,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             
                             $_SESSION["email"] = $email;   
                                 
-                            require_once "config.php";
                             $sql1 = "SELECT * FROM Users WHERE email = '$email' AND lv = 'Admin'";
                             $result = $conn->query($sql1);
                             if ($result->num_rows > 0) {
