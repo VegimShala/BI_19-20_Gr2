@@ -52,75 +52,31 @@ and open the template in the editor.
                 <div id="slider">
                     <nav>
                         <ul>
-                            <li>
-                                <a href="#story" onclick="showStory(0)">
-                                    <div class="images">
-                                        <img src="images/places/germia3.jpg" alt="canada.jpg" />
-                                        <p>G&euml;rmia National Park</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#story" onclick="showStory(1)">
-                                    <div class="images">
-                                        <img src="images/places/kalaja7.jpg" alt="canada.jpg" />
-                                        <p>Prizren Castle</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#story" onclick="showStory(2)">
-                                    <div class="images">
-                                        <img src="images/places/mirusha2.jpg" alt="canada.jpg" />
-                                        <p>Mirusha Waterfalls</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#story" onclick="showStory(3)">
-                                    <div class="images">
-                                        <img src="images/places/drini2.jpg" alt="canada.jpg" />
-                                        <p>White Drin</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#story" onclick="showStory(4)">
-                                    <div class="images">
-                                        <img src="images/places/gadime2.jpg" alt="canada.jpg" />
-                                        <p>Gadime Cave</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#story" onclick="showStory(5)">
-                                    <div class="images">
-                                        <img src="images/places/brezovica1.jpg" alt="canada.jpg" />
-                                        <p>Brezovica</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#story" onclick="showStory(6)">
-                                    <div class="images">
-                                        <img src="images/places/rugova1.jpg" alt="canada.jpg" />
-                                        <p>Rugova Gorge</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#story" onclick="showStory(7)">
-                                    <div class="images">
-                                        <img src="images/places/prevalla5.jpg" alt="canada.jpg" />
-                                        <p>Prevalla</p>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
+                        <?php
+                        require_once "config.php";
+                        $count=0;
+                    $sql ="SELECT  name,logo FROM places";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            echo "<li>
+                            <a href='#story'"."onclick='showStory(".$count.")'>
+                                <div class='images'>
+                                    <img src=".$row["logo"].">
+                                    <p>".$row["name"]."</p>
+                                </div>
+                            </a>
+                        </li>";
+                       $count=++$count; }
+                    } else {
+                        echo "No hotels";
+                    }
+                    
+                    $conn->close();
+                ?>
+                            
 
-                                <div class="hide images"></div>
-
-                            </li>
 
                         </ul>
                     </nav>
