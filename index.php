@@ -4,6 +4,10 @@ session_start();
 require_once "config.php";
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+// echo $_SESSION["loggedin"];
+>>>>>>> Stashed changes
 =======
 // echo $_SESSION["loggedin"];
 >>>>>>> Stashed changes

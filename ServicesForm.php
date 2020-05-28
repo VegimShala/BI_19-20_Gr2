@@ -45,13 +45,13 @@ function error($n) {
 
    
    return $serviceName; 
-}
+    }
 
-try {
-     error($_POST["name"]);
-    } catch (Exception $e) {
-    $servicename_err=$e->getMessage();
-}
+    try {
+         error($_POST["name"]);
+        } catch (Exception $e) {
+        $servicename_err=$e->getMessage();
+    }
 
 
 
