@@ -5,10 +5,11 @@
 class WriteFile
 {
     private $filename;
+    private $type;
 
-    public function __construct()
+    public function __construct($t)
     {
-
+        $this->type = $t;
     }
 
     public function setFileName($s)
@@ -28,8 +29,8 @@ class WriteJSONFile extends WriteFile
     {
         require "config.php"; 
         $query = "SELECT * FROM $table;";
-        echo "<h2>CREATING JSON FILE FROM THE DATA IN TABLE $table </h2><br>";
-        echo "The following query is being used to export the data<br>$query<br>";
+        //echo "<h2>CREATING JSON FILE FROM THE DATA IN TABLE $table </h2><br>";
+        //echo "The following query is being used to export the data<br>$query<br>";
         $result = mysqli_query($conn,$query);
         $user_data = array(); 
         $this->setFileName("JSON/$table.json");
@@ -132,25 +133,25 @@ class WriteJSONFile extends WriteFile
         $fN = $this->getFileName();
         if(file_put_contents($fN,$encoded))
         {
-            echo $fN ." file has been created";
+            //echo $fN ." file has been created";
         }
         else
         {
-            echo $fN ." file has not been created";
+            //echo $fN ." file has not been created";
         }
     }
 }
 
-$writeUsers = new WriteJSONFile();
-$writeUsers->writeJSONNew("Users");
-$writeUsers->writeJSONNew("Bookings");
-$writeUsers->writeJSONNew("Cities");
-$writeUsers->writeJSONNew("Feedback");
-$writeUsers->writeJSONNew("Hotels");
-$writeUsers->writeJSONNew("Photos");
-$writeUsers->writeJSONNew("Places");
-$writeUsers->writeJSONNew("Services");
-$writeUsers->writeJSONNew("Tour");
+// $writeUsers = new WriteJSONFile("json");
+// $writeUsers->writeJSONNew("Users");
+// $writeUsers->writeJSONNew("Bookings");
+// $writeUsers->writeJSONNew("Cities");
+// $writeUsers->writeJSONNew("Feedback");
+// $writeUsers->writeJSONNew("Hotels");
+// $writeUsers->writeJSONNew("Photos");
+// $writeUsers->writeJSONNew("Places");
+// $writeUsers->writeJSONNew("Services");
+// $writeUsers->writeJSONNew("Tour");
 
 
 

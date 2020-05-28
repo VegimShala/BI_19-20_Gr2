@@ -1,9 +1,9 @@
 <?php
 require_once "config.php";
 
-$name=$room=$checkin=$checkout=$person=$email=$rez=$price ="";
-$name_err=$room_err=$checkin_err=$checkout_err=$person_err=$email_err=$rez_err= "";
-$addname= $addroom=$addcheckin=$addrez=$addemail=$addperson=$addcheckout=$addprice="";
+$name=$hotel=$room=$checkin=$checkout=$person=$email=$rez=$price ="";
+$name_err=$hotel_err=$room_err=$checkin_err=$checkout_err=$person_err=$email_err=$rez_err= "";
+$addname=$addhotel= $addroom=$addcheckin=$addrez=$addemail=$addperson=$addcheckout=$addprice="";
 $imgChanged=false;
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -19,7 +19,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
          $name = trim($_POST["name"]);
              $addname=$name;
-             echo $name;
          }
 
 
@@ -29,8 +28,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         else {
 
          $room = trim($_POST["room"]);
-             $addroom=$room;
-             echo $addroom;}
+             $addroom=$room;}
+
+        // Validate hotel
+     if(empty(trim($_POST["hotel"]))){
+        $hotel_err = "Please enter a hotel.";}
+        else {
+
+         $hotel = trim($_POST["hotel"]);
+             $addhotel=$hotel;}
 
 
         // Validate checkin
@@ -39,8 +45,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         else {
 
          $checkin = trim($_POST["checkin"]);
-             $addcheckin=$checkin;
-             echo $checkin;}
+             $addcheckin=$checkin;}
 
         // Validate checkout
              if(empty(trim($_POST["checkout"]))){
@@ -48,8 +53,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         else {
 
          $checkout = trim($_POST["checkout"]);
-             $addcheckout=$checkout;
-             echo $checkout;}
+             $addcheckout=$checkout;}
 
 
         // Validate email
@@ -58,8 +62,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         else {
 
          $email = trim($_POST["email"]);
-             $addemail=$email;
-             echo $email;}
+             $addemail=$email;}
 
         // Validate person
         if(empty(trim($_POST["person"]))){
@@ -68,8 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
          $person = trim($_POST["person"]);
              $addperson=$person;
-             echo $person;
-             $_SESSION["person"] = $person; }
+             }
 
         // Validate radio button
              if(empty(trim($_POST["rez"]))){
@@ -78,7 +80,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
          $rez = trim($_POST["rez"]);
              $addrez=$rez;
-             echo $rez;
              if ($addrez=='All-inclusive') 
              {
                  $price=100;
@@ -91,7 +92,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 $price=30;
              }
 
-              $_SESSION["price"] = $price;
 
 
          }
@@ -100,7 +100,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 
         // Check input errors before inserting in database
-    if(empty($name_err) && empty($room_err) && empty($rez_err) && empty($person_err) && empty($email_err)&& empty($checkin_err) && empty($checkout_err))   
+    if(empty($name_err) && empty($room_err) && empty($rez_err) && empty($person_err) && empty($email_err)&& empty($checkin_err) && empty($checkout_err) && empty($hotel_err))   
     {
 
        
@@ -246,6 +246,24 @@ span.psw {
                         <label> <b>Check-out:</b>
                             <input name="checkout" type="date"  required>
             </label><br />
+            <label> <b>Hotel:</b>
+                            <select id="services" name="hotel">
+                            <?php 
+                        $sql = "SELECT name FROM Hotels;";
+                        $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $t = $row["name"];
+                    echo "<option value='$t'>$t</option>";
+                }
+            }
+            else{
+                echo "<option> No categories were found </option>";
+            }
+                     ?>
+                            </select>
+                        </label><br />
                         <label> <b>Room:</b>
                             <select id="services" name="room">
                                 <option>Single room</option>

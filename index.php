@@ -2,7 +2,7 @@
 // Initialize the session
 session_start();
 require_once "config.php";
-echo $_SESSION["loggedin"];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -77,9 +77,27 @@ echo $_SESSION["loggedin"];
         <div id="body">
     
             <div class="search" style="margin-top:3%"> 
-                <form class="example" action="" style="margin:auto;max-width:500px">
+                <form class="example" action="" style="
+    float: left;
+    max-width: 500px;
+    margin-left: 300px;">
                     <input type="text" placeholder="Search.." name="search2">
                 </form>
+                <form class="booking" action="<?php if(!isset($_SESSION['loggedin']))
+                {
+                    echo 'login.php';
+                }
+                else
+                {
+                    echo 'bookings.php';
+                }
+                ?>" style="margin:auto;max-width:500px">
+                    <input style="    height: 50px;
+    " type="submit" value="Booking" name="book">
+                </form>
+            </div>
+            <div class="book" style="margin-top:3%"> 
+                
             </div>
             
             <div id="services">
