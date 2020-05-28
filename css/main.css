@@ -81,6 +81,7 @@ p {
 .span4 .img-left {
     float: left;
     width: 500px;
+    height:500px;
 }
 .text1{
     padding-top: 150px;

@@ -42,7 +42,7 @@ echo $_SESSION["loggedin"];
                                 <?php if(!isset($_SESSION["loggedin"])){
                                     ?>
                                 <li><a href="login.php">Log in</a></li><?php } else {?>
-                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
+                                    <li><a href="#">Log out</a></li><?php }?>
                             </ul>
                         </div>
                     </li>
@@ -217,8 +217,8 @@ echo $_SESSION["loggedin"];
             </div>
            
             <?php 
-  
-if(isset($_COOKIE['recent'])){ 
+if(isset($_SESSION["loggedin"])){  
+   if(isset($_COOKIE['recent'])){ 
       $sql ="SELECT * FROM services where name='".$_COOKIE['recent']."'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
@@ -249,7 +249,9 @@ if(isset($_COOKIE['recent'])){
  else{ 
     echo "No items for auction."; 
 } 
-  
+}else{
+    echo "<p style='color:darkblue;font-weight:bold;font-size:32px'></p>";
+}
 ?>
      
         </div>
