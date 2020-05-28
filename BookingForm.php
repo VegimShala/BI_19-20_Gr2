@@ -102,16 +102,34 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         // Check input errors before inserting in database
     if(empty($name_err) && empty($room_err) && empty($rez_err) && empty($person_err) && empty($email_err)&& empty($checkin_err) && empty($checkout_err) && empty($hotel_err))   
     {
+        $userId = "";
+        $getUserId = "SELECT * from Users WHERE email = '$email';";
+            $result = $conn -> query($getUserId);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $userId = $row["id"];
+                }
+            }
 
+            $hotelId = "";
+        $getHotelId = "SELECT * from Hotels WHERE name = '$addhotel';";
+            $result = $conn -> query($getHotelId);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $hotelId = $row["id"];
+                }
+            }
        
           
-          $sql = "INSERT INTO bookings (checkIn, checkOut, offer, room, price) VALUES ('$addcheckin','$addcheckout','$addrez', '$addroom', '$addprice')";
+          $sql = "INSERT INTO bookings (checkIn, checkOut, offer, room, price, userId, hotelId) VALUES ('$addcheckin','$addcheckout','$addrez', '$addroom', '$addprice','$userId','$hotelId')";
 
          if(mysqli_query($conn, $sql)){
     echo "Records changed successfully.";
     
        
-        header("location: BookingResult.php");
+        header("location: bookings.php");
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
     }
