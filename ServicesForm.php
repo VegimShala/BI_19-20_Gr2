@@ -36,7 +36,7 @@ $serviceImg = "";
         $serviceImg =  "images/Services/".$_POST["img"];
         }
 
-    if(empty($category_err) || empty($servicename_err) || empty($img_err))
+    if(empty($category_err) && empty($servicename_err) && empty($img_err))
     {
         $sqlA = "INSERT INTO Services(id,name,type,Logo) VALUES (NULL,'$serviceName','$category','$serviceImg');";
         if ($conn->query($sqlA) === TRUE) {

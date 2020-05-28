@@ -3,6 +3,30 @@
 session_start();
 require_once "config.php";
 
+$category_err =  "";
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+
+    $name = "";
+
+    // Validate category
+    if(empty(trim($_POST["services"]))){
+        $category_err = "Please enter a tour.";
+    } else{
+        $name = $_POST["services"];
+        }
+    
+
+    
+        if(empty($category_err))
+        {            
+             $sqlA = "DELETE FROM Services WHERE name = '$name'";
+             if ($conn->query($sqlA) === TRUE) {
+                 //echo "Table Users created successfully";
+               } else {
+             echo "Error deleting data: " . $conn->error;
+               }
+                
+        }}
 
 ?>
 

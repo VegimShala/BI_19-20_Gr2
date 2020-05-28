@@ -427,16 +427,13 @@ white-space: normal;
 
 #plus
 {
-    margin-left:120px;
-    margin-top: -30px;
+    margin-left:100px;
     margin-bottom: 20px;
 
 }
 
 #edit
 {
-      
-     margin-top: -30px;
     margin-bottom: 20px;
 
 }
@@ -447,4 +444,9 @@ white-space: normal;
      margin-bottom: -5px;
     
 
+}
+
+#Nightlife
+{
+    margin-top: 250px;
 }
