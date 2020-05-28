@@ -22,7 +22,7 @@
  
 #body{
     background: white; 
-    height:1000px;
+    height:1400px;
 }
 
 #content{
@@ -73,6 +73,17 @@ p {
     border:none;
     border-radius: 13px;
     
+}
+.span4 img {
+    margin: 10px 120px;
+    vertical-align: middle;
+}
+.span4 .img-left {
+    float: left;
+    width: 500px;
+}
+.text1{
+    padding-top: 150px;
 }
 
 #text button:hover{

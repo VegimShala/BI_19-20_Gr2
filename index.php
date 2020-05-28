@@ -105,7 +105,7 @@ echo $_SESSION["loggedin"];
                         echo "No hotels";
                     }
                     
-                    $conn->close();
+                  
                 ?>
                                 
             </div>
@@ -206,8 +206,52 @@ echo $_SESSION["loggedin"];
                         </div>
                     </a>
                 </div>
+                <div id="line">
+                <fieldset>
+                    <legend>
+                        <h1>RECENTLY VIEWED</h1>
+                    </legend>
+                </fieldset>
 
             </div>
+            </div>
+           
+            <?php 
+  
+if(isset($_COOKIE['recent'])){ 
+      $sql ="SELECT * FROM services where name='".$_COOKIE['recent']."'";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            echo "<div class='container'>
+            <div class='row'>
+                <h2 style='text-align:center'>".$row["type"]."</h2>
+            </div>
+            
+            <div class='block'>
+              <div class='row'>
+                <div class='span4'>
+                  <img class='img-left' src='".$row["Logo"]."'/>
+                  <div class='text1'><h3>".$row["name"]."</h3>
+                  <p>This is the last thing u visited</p>
+                  </div>
+                </div>
+             </div>
+            </div>
+            </div>";
+        }
+    } else {
+        echo "No hotels";
+    }
+    
+    $conn->close();}
+ else{ 
+    echo "No items for auction."; 
+} 
+  
+?>
+     
         </div>
         
         <footer>
