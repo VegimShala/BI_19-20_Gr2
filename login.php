@@ -149,7 +149,7 @@ span.psw {
 </style>
 <script src="js/nav.js"></script>
 </head>
-<body onload="navActive('drop'); navActive('login');">
+<body onload=" navActive('login');">
     <div class="wrapper" id="po">
         <div id='blur'>
         </div>
@@ -165,7 +165,7 @@ span.psw {
                     <li><a href="Services.php">SERVICES</a></li>
                      <?php if(!isset($_SESSION["loggedin"])){?>
                         
-                    <li><a href="login.php">Log in</a></li><?php } else {?>
+                    <li><a href="login.php" id='login'>Log in</a></li><?php } else {?>
                     <li><a href="logout.php">Log out</a></li><?php }?></li>
                 </ul>
             </nav>

@@ -133,7 +133,7 @@ span.psw {
                     <li><a href="About.php">ABOUT</a></li>
                     <li><a href="Gallery.php">GALLERY</a></li>
                     <li><a href="Places.php">PLACES</a></li>
-                    <li><a href="Services.php">SERVICES</a></li>
+                    <li><a href="Services.php" id="serviceNav">SERVICES</a></li>
                      <?php if(!isset($_SESSION["loggedin"])){?>
                         
                     <li><a href="login.php">Log in</a></li><?php } else {?>

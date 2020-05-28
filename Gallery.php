@@ -31,7 +31,7 @@ require_once "config.php";
                 <ul>
                     <li><a href="index.php" id="home">HOME</a></li>
                     <li><a href="About.php">ABOUT</a></li>
-                    <li><a href="Gallery.php">GALLERY</a></li>
+                    <li><a href="Gallery.php" id="gallery">GALLERY</a></li>
                     <li><a href="Places.php">PLACES</a></li>
                     <li><a href="Services.php">SERVICES</a></li>
                      <?php if(!isset($_SESSION["loggedin"])){?>
