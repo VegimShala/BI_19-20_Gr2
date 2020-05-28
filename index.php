@@ -127,13 +127,14 @@ require_once "config.php";
                 </fieldset>
 
             </div>
+            <?php $city=array('PRISHTINA','PRIZREN','GJAKOVA','PEJA','GJILAN','MITROVICA');?>
             <div id="features">
                 <div id="f1">
                     <a href="images/prishtina.jpg" target="_blank">
                         <div class="feature1">
                             <img src="images/prishtina.jpg" alt="foto1">
                             <div class="title">
-                                <p>PRISHTINA</p>
+                                <p><?php echo $city[0];?></p>
                             </div>
 
                         </div>
@@ -142,7 +143,7 @@ require_once "config.php";
                         <div class="feature1">
                             <img src="images/pr4.jpg" alt="foto1">
                             <div class="title">
-                                <p>PRIZREN</p>
+                                <p><?php echo $city[1];?></p>
                             </div>
                         </div>
                     </a>
@@ -150,7 +151,7 @@ require_once "config.php";
                         <div class="feature1">
                             <img src="images/gjakova.jpg" alt="foto1">
                             <div class="title">
-                                <p>GJAKOVA</p>
+                                <p><?php echo $city[2];?></p>
                             </div>
                         </div>
                     </a>
@@ -160,7 +161,7 @@ require_once "config.php";
                         <div class="feature2">
                             <img src="images/peja.jpg" alt="foto1">
                             <div class="title">
-                                <p>PEJA</p>
+                                <p><?php echo $city[3];?></p>
                             </div>
                         </div>
                     </a>
@@ -168,7 +169,7 @@ require_once "config.php";
                         <div class="feature2">
                             <img src="images/gjilan.jpg" alt="foto1">
                             <div class="title">
-                                <p>GJILAN</p>
+                                <p><?php echo  $city[4];?></p>
                             </div>
                         </div>
                     </a>
@@ -176,7 +177,7 @@ require_once "config.php";
                         <div class="feature2">
                             <img src="images/mitrovica.jpg" alt="foto1">
                             <div class="title">
-                                <p>MITROVICA</p>
+                                <p><?php echo $city[5];?></p>
                             </div>
                         </div>
                     </a>
@@ -187,9 +188,8 @@ require_once "config.php";
                         <h1>RECENTLY VIEWED</h1>
                     </legend>
                 </fieldset>
-
-            </div>
-            </div>
+               </div>
+        </div>
            
             <?php 
 if(isset($_SESSION["loggedin"])){  
