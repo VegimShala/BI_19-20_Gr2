@@ -8,7 +8,7 @@ $imgChanged=false;
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
-
+    session_start();
  
     // Validate services
     if(empty(trim($_POST["services"]))){
@@ -42,6 +42,8 @@ echo $img;
 
          if(mysqli_query($conn, $sql)){
     echo "Records changed successfully.";
+    
+        $_SESSION["addTours"] = $addservices;
         header("location: tour.php");
     } else{
         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
@@ -49,7 +51,7 @@ echo $img;
                 
         
     }
-
+    $_SESSION["addTours"] = $addservices;
    header("location: tour.php");
 
         }                   

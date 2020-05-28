@@ -10,10 +10,10 @@ $tourname = "";
 $description = "";
 $tourimg = "";
 
-
+session_start();
 if(isset($_SESSION["addTours"]))
 {
-    $category = $$_SESSION["addTours"];
+    $category = $_SESSION["addTours"];
 }
 else{
     $category_err = "No category was specified.";
@@ -34,26 +34,34 @@ else{
         $description = $_POST["desc"];
         }
 
-     // Validate service img
-     if(empty(trim($_POST["img"]))){
-        $img_err = "Please choose an image";
-    } else{
-        $tourimg =  "images/Services/".$_POST["img"];
-        }
-
-    if(empty($category_err) || empty($img_err))
-    {
-        $getCategoryId = "SELECT id from Services WHERE name = $category;";
-        $result = $conn -> query($getCategoryId);
-        $categoryId = $result["id"];
-        $sqlA = "INSERT INTO Tour(id,src,header,content,idserv) VALUES (NULL,'$tourimg','$tourname','$description','$categoryId');";
-        if ($conn->query($sqlA) === TRUE) {
-            // echo "Table Users created successfully";
-          } else {
-            echo "Error creating table: " . $conn->error;
-          }
+          // Validate service img
+          if(empty(trim($_POST["img"]))){
+            $img_err = "Please choose an image";
+        } else{
+            $tourimg =  "images/Services/".$_POST["img"];
+            }
+    
+        if(empty($category_err) && empty($img_err))
+        {
+            $getCategoryId = "SELECT * from Services WHERE name = '$category';";
+            $result = $conn -> query($getCategoryId);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $categoryId = $row["id"];
+                }
+            }
             
-    }
+            
+            echo $categoryId;
+             $sqlA = "INSERT INTO Tour(id,src,header,content,idserv) VALUES (NULL,'$tourimg','$tourname','$description','$categoryId');";
+             if ($conn->query($sqlA) === TRUE) {
+                 echo "Table Users created successfully";
+               } else {
+             echo "Error creating table: " . $conn->error;
+               }
+                
+        }
 
     else
     {
