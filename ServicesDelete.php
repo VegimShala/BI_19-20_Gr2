@@ -1,75 +1,11 @@
 <?php
 // Initialize the session
+session_start();
 require_once "config.php";
-
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-
-$category_err =$tourname_err = $description_err = $img_err "";
-$category = "";
-$tourname = "";
-$description = "";
-$tourimg = "";
-
-
-if(isset($_SESSION["addTours"]))
-{
-    $category = $$_SESSION["addTours"];
-}
-else{
-    $category_err = "No category was specified.";
-}
- 
-    // Validate category
-    if(empty(trim($_POST["name"]))){
-        $tourname_err = "Please enter a name.";
-    } else{
-        $tourname = $_POST["name"];
-        }
-    
-
-    // Validate service name
-    if(empty(trim($_POST["desc"]))){
-        $description_err = "Please enter a service name.";
-    } else{
-        $description = $_POST["desc"];
-        }
-
-     // Validate service img
-     if(empty(trim($_POST["img"]))){
-        $img_err = "Please choose an image";
-    } else{
-        $tourimg =  "images/Services/".$_POST["img"];
-        }
-
-    if(empty($category_err) || empty($img_err))
-    {
-        $getCategoryId = "SELECT id from Services WHERE name = $category;";
-        $result = $conn -> query($getCategoryId);
-        $categoryId = $result["id"];
-        $sqlA = "INSERT INTO Tour(id,src,header,content,idserv) VALUES (NULL,'$tourimg','$tourname','$description','$categoryId');";
-        if ($conn->query($sqlA) === TRUE) {
-            echo "Table Users created successfully";
-          } else {
-            echo "Error creating table: " . $conn->error;
-          }
-            
-    }
-
-    else
-    {
-        echo $category_err ."<br>". $img_err;
-    }
-    
-
-
-
-
-}
- 
-// Check if the user is logged in, if not then redirect him to login page
 
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -89,22 +25,14 @@ form{
     margin: 0 auto;
     padding: 10%;
 }
-#entrance1{
-    height: 150px;
-    background-color: rgb(13, 21, 60);
-}
-#entrance1 h1{
-    color: white;
-    margin:3%;
-}
+
 .container{
     width: 100%;
     border: 3px solid #f1f1f1;
     border-bottom: 50px solid #f1f1f1;
     padding: 16px;
 }
-
-input[type=text], input[type=password], input[type=email],input[type=file], #services{
+#fname, input[type=password], input[type=activity],input[type=file], #services{
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -160,49 +88,55 @@ span.psw {
                                 </ul>
             </nav>
 
+            <!-- <h1>Enjoy Your Dream Vacation</h1> -->
             <canvas id="myCanvas" width="900" height="200">
                 Your browser does not support the canvas element.
             </canvas>
-  
-         <!--    <h3>Travel to the any corner of Kosovo, without going around in circles.</h3> -->
+            <script>
+                var canvas = document.getElementById("myCanvas");
+                var ctx = canvas.getContext("2d");
+                var grd = ctx.createLinearGradient(0, 190, 900, 190);
+                grd.addColorStop(0, "darkblue");
+                grd.addColorStop(1, "white");
+                ctx.fillStyle = grd;
+                ctx.font = "45px Arial";
+                ctx.fillStyle = grd;
+                ctx.fillText("Enjoy Your Dream Vacation", 310, 190);
+            </script>
+
+            <h3>Travel to the any corner of Kosovo, without going around in circles.</h3>
         </header>
 
-                <form action="#" method="post">
-        <div class="container" id="content">
+                <form  action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+        <div class="container" >
 
-          <label for="fname" id="some" ><b>Tour name</b></label>
-            <input type="text" placeholder="Name of characteristic" id="fname" name="name" >
-            <p id="msg" style="color:darkblue; margin:1%"></p>
 
-            <label for="dname" id="some" ><b>Add description</b></label>
-            <input type="text" placeholder="Name of service" id="dname" name="desc" >
-            <p id="msg" style="color:darkblue; margin:1%"></p>
-       
-          
-             <label for="img" id="some"><b>Select image:</b></label>
-            <input type="file" id="img" name="img" accept="image/*">
+                     <label for="fname" id="some" ><b>Name of service</b></label>
+                     <select id="fname" type="text" name="services" >
+                     <?php 
+                        $sql = "SELECT DISTINCT name FROM Services;";
+                        $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $t = $row["name"];
+                    echo "<option value='$t'>$t</option>";
+                }
+            }
+            else{
+                echo "<option> No categories were found </option>";
+            }
+                     ?>
 
-                <p id="warn" style="color:darkblue; margin:1%"></p>
+        </select>
+            <button style="margin-top:20px; margin-left:125px; " id="bt1" type="submit" >Delete Service</button>
+            <label>
            
-            <button id="bt1" type="submit"  >Add Tour</button>  
-
-            <img id="plus1" onclick="addCode()" src="images/plus.png" alt="plus" style="width: 20px; height: 20px " >
-            </label><br><br> <div> <br></div>
+            </label><br><br>
             
-           
         </div>
         </form>
-<script type="text/javascript">
 
-    
-    function addCode() { 
-
-            document.getElementById("content").innerHTML +=  
-              '<label for="fname" id="some" ><b>Tour name</b></label> <input type="text" placeholder="Name of service" id="fname" name="name" >  <label for="dname" id="some" ><b>Add description</b></label>   <input type="text" placeholder="Name of service" id="dname" name="dname" >     <label for="img" id="some"><b>Select image:</b></label> <input type="file" id="img" name="img" accept="image/*">    </label><br><br> <div> <br></div>   '; 
-        } 
-
-
-</script>
        
 
         <footer>
@@ -242,7 +176,7 @@ span.psw {
                     <p class="divHeader">Contact Us</p>
                     <form method="post" action="http://www.google.com"  id="form2">
                         <input type="text" name="name" placeholder="Full Name"class="required"/>
-                        <input type="text" name="email" placeholder="Email Address"class="required"/>
+                        <input type="text" name="activity" placeholder="activity Address"class="required"/>
                         <input type="text" name="subject" placeholder="Subject" class="required"/>
                         <textarea name="message" rows="4" cols="25" placeholder="Message"></textarea>
                         <input type="submit" value="SUBMIT"/>
@@ -253,7 +187,7 @@ span.psw {
             <p>Copyright &COPY; 2013 Domain Name <span style="float:right">Template by OS Templates</span></p>
         </footer>
     </div>
-    <script src="js/contactval.js"></script>
+
 </body>
 
 </html>

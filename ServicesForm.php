@@ -9,7 +9,7 @@ require_once "config.php";
 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-$category_err =$servicename_err = $img_err "";
+$category_err =$servicename_err = $img_err = "";
 $category = "";
 $serviceName = "";
 $serviceImg = "";
@@ -33,8 +33,23 @@ $serviceImg = "";
      if(empty(trim($_POST["img"]))){
         $img_err = "Please choose an image";
     } else{
-        $serviceImg =  "Services/images/"$_POST["img"];
+        $serviceImg =  "images/Services/".$_POST["img"];
         }
+
+    if(empty($category_err) || empty($servicename_err) || empty($img_err))
+    {
+        $sqlA = "INSERT INTO Services(id,name,type,Logo) VALUES (NULL,'$serviceName','$category','$serviceImg');";
+        if ($conn->query($sqlA) === TRUE) {
+            echo "Table Users created successfully";
+          } else {
+            echo "Error creating table: " . $conn->error;
+          }
+            
+    }
+    else
+    {
+        echo $category_err ."<br>". $servicename_err ."<br>". $img_err;
+    }
     
 
 

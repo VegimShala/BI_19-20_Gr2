@@ -140,6 +140,7 @@ $(document).ready(function(){
             
             <a href="ServicesForm.php"><img id="plus" src="images/plus.png" alt="plus" style="width: 30px; height: 30px " ></a>
                 <a href="tour.php"><img src="images/edit.png" alt="edit" id="edit"  style="width: 30px; height: 30px " ></a>
+                <a href="ServicesDelete.php"><img src="images/delete.png" alt="delete" id="edit"  style="width: 30px; height: 30px " ></a>
                 <?php } ?>
 
         </div>
