@@ -173,22 +173,20 @@ span.psw {
 
                      <label for="fname" id="some" ><b>Name of service</b></label>
              <select id="fname" type="text" name="services" >
-            <option selected="selected" ></option>
-            <option value="Tour to Rugova">Tour to Rugova</option>
-            <option value="Tour to Ulpiana">Tour to Ulpiana</option>
-            <option value="Sunny Hill Festival">Sunny Hill Festival</option>
-            <option value="Pri Film Fest">Pri Film Fest</option>
-            <option value="The Lily of Prizren">The Lily of Prizren</option>
-
-             <option value="17 February">17 February</option>
-            <option value="Prite nShesh">Prite nShesh</option>
-            <option value="DOKUTECH">DOKUTECH</option>
-            <option value="Lidhja e Prizrenit">Lidhja e Prizrenit</option>
-             <option value="Mosque of Sinan Pasha">Mosque of Sinan Pasha</option>
-            <option value="National Museum of Kosovo">National Museum of Kosovo</option>
-            <option value="Famous restaurants in Prizren">Famous restaurants in Prizren</option>
-            <option value="Famous restaurants in Peja">Famous restaurants in Peja</option>
-            <option value="The Lily of Prizren">The Lily of Prizren</option>
+             <?php 
+                        $sql = "SELECT DISTINCT name FROM Services;";
+                        $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $t = $row["name"];
+                    echo "<option value='$t'>$t</option>";
+                }
+            }
+            else{
+                echo "<option> No categories were found </option>";
+            }
+                     ?>
              </select>
                <p id="msg" style="color:darkblue; margin:1%" ><?php echo $services_err; ?></p>
 

@@ -1,10 +1,31 @@
 <?php
 // Initialize the session
 require_once "config.php";
-$category_err =$tourname_err = $description_err = $img_err= "";
+$category_err =$tourname_err = $description_err = $img_err= $tourname1_err = "";
 if($_SERVER["REQUEST_METHOD"] == "POST"){
+if($_POST["hidden"] == "Delete"){
+    $tourname1 = "";
 
+    // Validate category
+    if(empty(trim($_POST["tours"]))){
+        $tourname1_err = "Please enter a tour.";
+    } else{
+        $tourname1 = $_POST["tours"];
+        }
+    
 
+    
+        if(empty($tourname1_err))
+        {            
+             $sqlA = "DELETE FROM Tour WHERE header = '$tourname1'";
+             if ($conn->query($sqlA) === TRUE) {
+                 //echo "Table Users created successfully";
+               } else {
+             echo "Error deleting data: " . $conn->error;
+               }
+                
+        }}
+        else {
 $category = "";
 $tourname = "";
 $description = "";
@@ -52,13 +73,11 @@ else{
                 }
             }
             
-            
-            echo $categoryId;
              $sqlA = "INSERT INTO Tour(id,src,header,content,idserv) VALUES (NULL,'$tourimg','$tourname','$description','$categoryId');";
              if ($conn->query($sqlA) === TRUE) {
-                 echo "Table Users created successfully";
+                 //echo "Table Users created successfully";
                } else {
-             echo "Error creating table: " . $conn->error;
+             echo "Error inserting data: " . $conn->error;
                }
                 
         }
@@ -66,13 +85,9 @@ else{
     else
     {
         // echo $category_err ."<br>". $img_err;
-    }
-    
-
-
-
-
+    }}
 }
+
  
 // Check if the user is logged in, if not then redirect him to login page
 
@@ -92,6 +107,7 @@ else{
     <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 form{
+    float: left;
     width: 30%;
     display: block;
     margin: 0 auto;
@@ -120,7 +136,14 @@ input[type=text], input[type=password], input[type=email],input[type=file], #ser
   border: 1px solid #ccc;
   box-sizing: border-box;
 }
-
+#fname, input[type=password], input[type=activity],input[type=file], #services{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
 
 
 span.psw {
@@ -140,7 +163,7 @@ span.psw {
 
 <body onload="navActive('serviceNav')">
 
-    <div id="w1" class="wrapper">
+    <div style="min-height:1000px;" id="w1" class="wrapper">
         <div id='blur'>
         </div>
 
@@ -177,7 +200,7 @@ span.psw {
 
                 <form action="#" method="post">
         <div class="container" id="content">
-
+        <input type="hidden" name="hidden" value="Add">
           <label for="fname" id="some" ><b>Tour name</b></label>
             <input type="text" placeholder="Name of characteristic" id="fname" name="name" >
             <p id="msg" style="color:darkblue; margin:1%"> <?php echo $tourname_err; ?></p>
@@ -192,9 +215,39 @@ span.psw {
 
                 <p id="warn" style="color:darkblue; margin:1%"><?php echo $img_err; ?></p>
            
-            <button id="bt1" type="submit"  >Add Tour</button>  
+            <button id="bt1" type="submit"  name="Add">Add Tour</button>  
 
-            <img id="plus1" onclick="addCode()" src="images/plus.png" alt="plus" style="width: 20px; height: 20px " >
+            </label><br><br> <div> <br></div>
+            
+           
+        </div>
+        </form>
+        <form action="#" method="post">
+        <div class="container" id="content">
+
+          <label for="fname" id="some" ><b>Tour name</b></label>]
+          <input type="hidden" name="hidden" value="Delete">
+          <select id="fname" type="text" name="tours" >
+          <?php 
+                        $sql = "SELECT DISTINCT header FROM Tour;"; 
+                        $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+                    $t = $row["header"];
+                    echo "<option value='$t'>$t</option>";
+                }
+            }
+            else{
+                echo "<option> No categories were found </option>";
+            }
+                     ?>
+
+        </select>
+
+           
+            <button id="bt1" type="submit" name="Delete"  >Delete Tour</button>  
+
             </label><br><br> <div> <br></div>
             
            
