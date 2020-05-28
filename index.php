@@ -42,7 +42,7 @@ echo $_SESSION["loggedin"];
                                 <?php if(!isset($_SESSION["loggedin"])){
                                     ?>
                                 <li><a href="login.php">Log in</a></li><?php } else {?>
-                                    <li><a href="#">Log out</a></li><?php }?>
+                                    <li><a href="logout.php">Log out</a></li><?php }?>
                             </ul>
                         </div>
                     </li>

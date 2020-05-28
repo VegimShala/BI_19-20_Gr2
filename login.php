@@ -196,34 +196,6 @@ span.psw {
         </div>
         </form>
     </div>
-    <script>
-        function CheckPassword() 
-    { 
-    const inputtxt=document.getElementById('psw');
-    const inputem=document.getElementById('email');
-    const em=document.getElementById('msg');
-
-   try{
-    if(inputem.value==''){
-        inputem.style.borderBottom='3px solid darkblue'
-        throw "Input empty"
-    }}
-    catch(err){ msg.innerHTML=err}
     
-    var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
-    if(inputtxt.value.match(decimal)) 
-    { 
-       return true;
-    }
-    else
-    { 
-    document.getElementById('warn').innerHTML='Password must contain at least 8 characters,one uppercase letter one digit and one special character';
-    inputtxt.style.borderBottom='3px solid darkblue'
-    return false;
-    }
-    }
-    
-    
-</script>
 </body>
 </html>
