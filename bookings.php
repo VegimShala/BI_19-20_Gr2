@@ -99,24 +99,17 @@ padding-right: 100px;
             <p>Kosovo</p>
             <nav>
                 <ul>
-                    <li><a href="index.php">HOME</a></li>
-                    <li><a href="About.php" id="about1">ABOUT</a></li>
+                    <li><a href="index.php" id="home">HOME</a></li>
+                    <li><a href="About.php">ABOUT</a></li>
                     <li><a href="Gallery.php">GALLERY</a></li>
                     <li><a href="Places.php">PLACES</a></li>
-                    <li><a href="Services.php" id="serviceNav">SERVICES</a></li>
-                    <li><a href="#" id="drop">MORE</a>
-                        <div id="dropdown">
-                            <ul>
-                                <li><a href="Feedback.php">Feedback</a></li>
-                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-                                    ?>
-                                <li><a href="login.php">Log in</a></li><?php } else {?>
-                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
-                            </ul>
-                        </div>
-                    </li>
-                                </ul>
-                                </nav>
+                    <li><a href="Services.php">SERVICES</a></li>
+                     <?php if(!isset($_SESSION["loggedin"])){?>
+                        
+                    <li><a href="login.php">Log in</a></li><?php } else {?>
+                    <li><a href="logout.php">Log out</a></li><?php }?></li>
+                </ul>
+            </nav>
         </header>
         <div class="schedules">
         <table>
