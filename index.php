@@ -2,15 +2,6 @@
 // Initialize the session
 session_start();
 require_once "config.php";
-
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-// echo $_SESSION["loggedin"];
->>>>>>> Stashed changes
-=======
-// echo $_SESSION["loggedin"];
->>>>>>> Stashed changes
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -127,41 +118,6 @@ require_once "config.php";
                   
                 ?>
                                 
-            </div>
-            <div class="hover_bkgr_fricc">
-                <span class="helper"></span>
-                <div>
-                    <div class="popupCloseButton">X</div>
-                    <h1>Book now</h1>
-                    <form id="book" name="form" method="POST" action="#" onsubmit="return validateForm()">
-                        <label>Name:
-                            <input type="text" name="name">
-                        </label><br />
-                        <label>Email:
-                            <input name="email" type="email" placeholder="e.x. name@domain.com">
-                        </label></br>
-                        <label>Check-in:
-                            <input name="data1" type="date" required>
-                        </label><br />
-                        <label>Check-out:
-                            <input name="data2" type="date" style="margin:2% 7.8%;" required>
-                        </label><br />
-                        <label>Room :
-                            <select name="room">
-                                <option>Single room</option>
-                                <option>Double room</option>
-                                <option>Triple room</option>
-                                <option>Villa</option>
-                            </select>
-                        </label><br />
-                        <input type="radio" name="rez" checked>All-inclusive
-                        <input type="radio" name="rez">Just breakfast
-                        <input type="radio" name="rez">No food
-                        <br />
-                        Encryption: <keygen name="security" form="secureform">
-                        <input type="submit" value="Book!" id="btn">
-                    </form>
-                </div>
             </div>
             <div id="line">
                 <fieldset>

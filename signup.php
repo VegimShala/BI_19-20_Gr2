@@ -153,7 +153,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $addpass=trim($_POST["password"]);
 
          $count=(int)(rand(1,1000));
-         $id=strtoupper(substr($addname,0,1)).strtoupper(substr($addlastname,0,1)).strtoupper(substr($addusername,0,1)).strtoupper(substr($addusername,sizeOf($addusername)-2,sizeOf($addusername))).strtoupper($count);
+         $id=strtoupper(substr($addname,0,1)).strtoupper(substr($addlastname,0,1)).strtoupper(substr($addusername,0,1)).strtoupper(substr($addusername,strlen($addusername)-2,strlen($addusername))).strtoupper($count);
      
                          
 

@@ -120,14 +120,15 @@
                 <form action="cities.php">
                     <label for="cities"><b>Select City</b></label>
                     <select id="cities" type="text" name="cities" style="padding:5px 15px;margin-left:3%" onclick="changeMap()">
-                        <option value="2">Prishtine</option>
-                        <option value="3">Prizren</option>
-                        <option value="4">Gjakove</option>
-                        <option value="5">Peje</option>
-                        <option value="6">Gjilan</option>
-                        <option value="7">Mitrovice</option>
-                        <option value="8">Shterpce</option>
-                        <option value="9">Lipjan</option>
+                    <?php
+                        $city = array("Prishtine"=>"2", "Prizren"=>"3", "Gjakove"=>"4",
+                        "Peje"=>"5", "Gjilan"=>"6", "Mitrovice"=>"7","Lipjan"=>"9");
+                        ksort($city);
+
+                        foreach($city as $x => $x_value) {
+                            echo  "<option value='".$x_value."'>".$x."</option>";
+                        }
+                    ?>
                     </select>
                 </form>
                 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
