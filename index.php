@@ -3,6 +3,10 @@
 session_start();
 require_once "config.php";
 
+<<<<<<< Updated upstream
+=======
+// echo $_SESSION["loggedin"];
+>>>>>>> Stashed changes
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,18 +39,11 @@ require_once "config.php";
                     <li><a href="Gallery.php">GALLERY</a></li>
                     <li><a href="Places.php">PLACES</a></li>
                     <li><a href="Services.php">SERVICES</a></li>
-                    <li><a href="#" id="drop">MORE</a>
-                        <div id="dropdown">
-                            <ul>
-                                
-                                <?php if(!isset($_SESSION["loggedin"])){
-                                    ?>
-                                <li><a href="login.php">Log in</a></li><?php } else {?>
-                                    <li><a href="logout.php">Log out</a></li><?php }?>
-                            </ul>
-                        </div>
-                    </li>
-                                </ul>
+                     <?php if(!isset($_SESSION["loggedin"])){?>
+                        
+                    <li><a href="login.php">Log in</a></li><?php } else {?>
+                    <li><a href="logout.php">Log out</a></li><?php }?></li>
+                </ul>
             </nav>
             <div id="content">
                 <!--<a href="#" onclick="plusDivs(-1)">&#10094;</a>-->

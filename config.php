@@ -3,7 +3,7 @@
 server with default setting (user 'root' with no password) */
 
 //define('DB_SERVER', 'localhost');
-// define('DB_SERVER', 'localhost:1235');
+define('DB_SERVER', 'localhost:1235');
 
 //define('DB_SERVER', 'localhost');
 // define('DB_SERVER', 'localhost:1235');
@@ -19,4 +19,6 @@ $conn = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD,DB_NAME);
 if($conn === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
+
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 ?>
