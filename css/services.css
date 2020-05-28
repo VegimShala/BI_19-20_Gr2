@@ -282,7 +282,7 @@ table tr>td
 }
 #rugova, #ulpiana, #sunnyhill, #suni, #sunii, #kosova, #prite, #doku, #lidhja, #xhamia ,#muzeu ,#prishtina ,#prizreni ,#peja 
 {
-    display: none;
+    display: block;
 }
 
 
@@ -407,10 +407,7 @@ margin: 10px 300px 30px 300px;
   #rugova #start
   {
     width: 600px;
-      outline-width: 1px;
-      outline-style: dotted;
-      outline-color: #131C39 ;
-      outline-offset: 40px;
+      
       margin-left: 300px;
  
       
