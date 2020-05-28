@@ -50,6 +50,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
                             </ul>
                         </div>
                     </li>
+                                </ul>
             </nav>
             <div id="content">
                 <!--<a href="#" onclick="plusDivs(-1)">&#10094;</a>-->

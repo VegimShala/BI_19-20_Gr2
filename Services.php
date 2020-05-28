@@ -67,153 +67,43 @@
             <div id="list1">
                 <nav>
                     <ul>
-                        <li><a href="javascript:HideContent(['service1', 'service2','service3','service4','service5'])"
-                                id="s1">Activities</a></li>
-                        <li><a href="javascript:HideContent(['service2','service1','service3','service4','service5'])"
-                                id="s2">Festivals</a></li>
-                        <li><a href="javascript:HideContent(['service3','service2','service1','service4','service5'])"
-                                id="s3">Events</a></li>
-                        <li><a href="javascript:HideContent(['service4','service2','service3','service1','service5'])"
-                                id="s4">Monuments</a></li>
-                        <li><a href="javascript:HideContent(['service5','service2','service3','service4','service1'])"
-                                id="s5">Food and drink</a></li>
+                        <li><a href="#" class="s1">Activities</a></li>
+                        <li><a href="#" class="s1">Festivals</a></li>
+                        <li><a href="#" class="s1">Events</a></li>
+                        <li><a href="#" class="s1">Monuments</a></li>
+                        <li><a href="#"
+                                class="s1">Food and drink</a></li>
 
                     </ul>
                 </nav>
             </div>
+            <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    $('.s1').on("click", function(){
+        /* Get input value on change */
 
+        var inputVal = $(this).html();
+        console.log(inputVal);
+        var resultDropdown = $("#service1");
+        if(inputVal.length){
+            $.get("serv.php", {term: inputVal}).done(function(data){
+                // Display the returned data in browser
+                resultDropdown.html(data);console.log(data);
+            });
+        } else{
+            resultDropdown.empty();
+        }
+     });
+    
+   
+});
+</script>
             <div id="col">
                 <div class="row1">
-                    <div id="service1">
-                        <a
-                            href="javascript:HideContent2(['Nightlife','rugova','ulpiana','sunnyhill','suni','sunii','lidhja','xhamia','muzeu','prishtina','prizreni','peja','kosova','doku','prite'])">
-                            <div class="service">
-                                <img src="images/night1.jpg" alt="foto">
-                                <div class="text">
-                                    <p>Nightlife Tour</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a
-                            href="javascript:HideContent2(['rugova','Nightlife','ulpiana','sunnyhill','suni','sunii','lidhja','xhamia','muzeu','prishtina','prizreni','peja','kosova','doku','prite'])">
-                            <div class="service">
-                                <img src="images/rugova2.jpg" alt="foto">
-                                <div class="text">
-                                    <p>Tour to Rugova</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a
-                            href="javascript:HideContent2(['ulpiana','Nightlife','rugova','sunnyhill','suni','sunii','lidhja','xhamia','muzeu','prishtina','prizreni','peja','kosova','doku','prite'])">
-                            <div class="service">
-                                <img src="images/ulpiana1.jpg" alt="foto">
-                                <div class="text">
-                                    <p>Tour to Ulpiana</p>
-                                </div>
-                            </div>
-                        </a>
-
-      
-                    
-
-                    </div>
+                     <div class="service1"></div>
                 </div>
-                <div class="row1">
-                    <div id="service2">
-                        <a
-                            href="javascript:HideContent2(['sunnyhill','suni','sunii','ulpiana','Nightlife','rugova','kosova','prite','doku','lidhja','xhamia','muzeu','prishtina','prizreni','peja'])">
-                            <div class="service">
-                                <img src="images/sunnyhill.jpg" alt="foto">
-                                <div class="text">
-                                    <p>Sunny Hill Festival</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a
-                            href="javascript:HideContent2(['suni','sunnyhill','sunii','ulpiana','Nightlife','rugova','kosova','prite','doku','lidhja','xhamia','muzeu','prishtina','prizreni','peja'])">
-                            <div class="service">
-                                <img src="images/film.jpg" alt="foto">
-                                <div class="text">
-                                    <p>Pri Film Fest</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a
-                            href="javascript:HideContent2(['sunii','suni','sunnyhill','ulpiana','Nightlife','rugova','kosova','prite','doku','lidhja','xhamia','muzeu','prishtina','prizreni','peja'])">
-                            <div class="service">
-                                <img src="images/zambaku.jpg" alt="foto">
-                                <div class="text">
-                                    <p>The Lily of Prizren</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row1">
-                    <div id="service3">
-                        <a
-                            href="javascript:HideContent2(['kosova','sunnyhill','suni','sunii','ulpiana','Nightlife','rugova','prite','doku','lidhja','xhamia','muzeu','prishtina','prizreni','peja'])">
-                            <div class="service">
-                                <img src="images/kosova6.jpg" alt="foto">
-                                <div class="text">
-                                    <p>17 February</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a
-                            href="javascript:HideContent2(['prite','sunii','suni','sunnyhill','ulpiana','Nightlife','rugova','kosova','doku','lidhja','xhamia','muzeu','prishtina','prizreni','peja'])">
-                            <div class="service">
-                                <img src="images/prite.jpg" alt="foto">
-                                <div class="text">
-                                    <p>Prite n'Shesh</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a
-                            href="javascript:HideContent2(['doku','prite','sunii','suni','sunnyhill','ulpiana','Nightlife','rugova','kosova','lidhja','xhamia','muzeu','prishtina','prizreni','peja'])">
-                            <div class="service">
-                                <img src="images/doku.jpg" alt="foto">
-                                <div class="text">
-                                    <p>DOKUTECH</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="row1">
-                    <div id="service4">
-                        <a
-                            href="javascript:HideContent2(['lidhja','prite','sunii','suni','sunnyhill','ulpiana','Nightlife','rugova','kosova','doku','xhamia','muzeu','prishtina','prizreni','peja'])">
-                            <div class="service">
-                                <img src="images/lidhja.jpg" alt="foto">
-                                <div class="text">
-                                    <p>Lidhja e Prizrenit</p>
-                                </div>
-                            </div>
-                        </a>
-                        <a
-                            href="javascript:HideContent2(['xhamia','prite','sunii','suni','sunnyhill','ulpiana','Nightlife','rugova','kosova','doku','lidhja','muzeu','prishtina','prizreni','peja'])">
-                            <div class="service">
-                                <img src="images/xhamia2.jpg" alt="foto">
-                                <div class="text">
-                                    <p>Mosque of Sinan Pasha</p>
-                                </div>
-
-                            </div>
-                        </a>
-                        <a
-                            href="javascript:HideContent2(['muzeu','prite','sunii','suni','sunnyhill','ulpiana','Nightlife','rugova','kosova','doku','lidhja','xhamia','prishtina','prizreni','peja'])">
-                            <div class="service">
-                                <img src="images/muzeu3.jpg" alt="foto">
-                                <div class="text">
-                                    <p>National Museum of Kosovo</p>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
-
+                
             </div>
 
             <a href="ServicesForm.php"><img id="plus" src="images/plus.png" alt="plus" style="width: 30px; height: 30px " ></a>

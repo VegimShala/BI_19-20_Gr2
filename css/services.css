@@ -64,7 +64,7 @@ background: -moz-radial-gradient(ellipse at top, #e66465, transparent),
 
 #service1, #service2, #service3, #service4, #service5
 {
-    display: none;
+    display: block;
     height: 300px;
 }
 #service1
