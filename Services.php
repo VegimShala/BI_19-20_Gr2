@@ -1,4 +1,11 @@
-<!DOCTYPE html>
+<?php
+// Initialize the session
+session_start();
+require_once "config.php";
+
+
+
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,19 +35,23 @@
             <p>Kosovo</p>
             <nav>
                 <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="About.html">ABOUT</a></li>
-                    <li><a href="Gallery.html">GALLERY</a></li>
-                    <li><a href="Places.html">PLACES</a></li>
-                    <li><a href="Services.html" id="serviceNav">SERVICES</a></li>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="About.php" id="about1">ABOUT</a></li>
+                    <li><a href="Gallery.php">GALLERY</a></li>
+                    <li><a href="Places.php">PLACES</a></li>
+                    <li><a href="Services.php" id="serviceNav">SERVICES</a></li>
                     <li><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
                             <ul>
-                                <li><a href="Feedback.html">Feedback</a></li>
-                                <li><a href="login.html">Log in</a></li>
+                                <li><a href="Feedback.php">Feedback</a></li>
+                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                                    ?>
+                                <li><a href="login.php">Log in</a></li><?php } else {?>
+                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
                             </ul>
                         </div>
                     </li>
+                                </ul>
             </nav>
 
             <!-- <h1>Enjoy Your Dream Vacation</h1> -->
@@ -67,13 +78,17 @@
             <div id="list1">
                 <nav>
                     <ul>
-                        <li><a href="#" class="s1">Activities</a></li>
-                        <li><a href="#" class="s1">Festivals</a></li>
-                        <li><a href="#" class="s1">Events</a></li>
-                        <li><a href="#" class="s1">Monuments</a></li>
-                        <li><a href="#"
-                                class="s1">Food and drink</a></li>
-
+                        <li><a href="javascript:HideContent(['service1', 'service2','service3','service4','service5'])'" onclick="<?php setcookie("Category","Activities",time()+(2*86400)); ?>"
+                                id="s1">Activities</a></li>
+                        <li><a href="javascript:HideContent(['service2','service1','service3','service4','service5'])" onclick="<?php setcookie("Category","Festivals",time()+(2*86400));?>"
+                                id="s2">Festivals</a></li>
+                        <li><a href="javascript:HideContent(['service3','service2','service1','service4','service5'])" onclick="<?php setcookie("Category","Events",time()+(2*86400));?>"
+                                id="s3">Events</a></li>
+                        <li><a href="javascript:HideContent(['service4','service2','service3','service1','service5'])" onclick="<?php setcookie("Category","Monuments",time()+(2*86400));?>"
+                                id="s4">Monuments</a></li>
+                        <li><a href="javascript:HideContent(['service5','service2','service3','service4','service1'])" onclick="<?php setcookie("Category","Food And drink",time()+(2*86400));?>"
+                                id="s5">Food And drink</a></li>
+                        <?php echo $_COOKIE["Category"]; ?>
                     </ul>
                 </nav>
             </div>
@@ -85,11 +100,12 @@ $(document).ready(function(){
 
         var inputVal = $(this).html();
         console.log(inputVal);
-        var resultDropdown = $("#service1");
+        var resultDropdown = $(".service1");
         if(inputVal.length){
             $.get("serv.php", {term: inputVal}).done(function(data){
                 // Display the returned data in browser
                 resultDropdown.html(data);console.log(data);
+                echo "TEST 12 12 12 12 21 12 12 12 1 12 12";
             });
         } else{
             resultDropdown.empty();
@@ -106,8 +122,15 @@ $(document).ready(function(){
                 
             </div>
 
+            <?php 
+            if(isset($_SESSION["isAdmin"]))
+            {
+                ?>
+            
             <a href="ServicesForm.php"><img id="plus" src="images/plus.png" alt="plus" style="width: 30px; height: 30px " ></a>
                 <a href="tour.php"><img src="images/edit.png" alt="edit" id="edit"  style="width: 30px; height: 30px " ></a>
+                <?php }  ?>
+        </div>
 
         </div>
           

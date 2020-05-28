@@ -49,11 +49,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(mysqli_stmt_execute($stmt)){
                 // Store result
                 mysqli_stmt_store_result($stmt);
-                
                 // Check if email exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
                     mysqli_stmt_bind_result($stmt, $email, $hashed_password);
+                    
                     if(mysqli_stmt_fetch($stmt)){
                         if($password == $hashed_password){
                             // Password is correct, so start a new session
@@ -62,8 +62,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             
-                            $_SESSION["email"] = $email;       
-
+                            $_SESSION["email"] = $email;   
+                                
                             require_once "config.php";
                             $sql1 = "SELECT * FROM Users WHERE email = '$email' AND lv = 'Admin'";
                             $result = $conn->query($sql1);
@@ -160,18 +160,22 @@ span.psw {
             <nav>
                 <ul>
                     <li><a href="index.php">HOME</a></li>
-                    <li><a href="About.php">ABOUT</a></li>
+                    <li><a href="About.php" id="about1">ABOUT</a></li>
                     <li><a href="Gallery.php">GALLERY</a></li>
                     <li><a href="Places.php">PLACES</a></li>
                     <li><a href="Services.php">SERVICES</a></li>
-                    <li ><a href="#" id="drop">MORE</a>
+                    <li><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
-                            <ul >
-                            <li><a href="Feedback.html">Feedback</a></li>
-                            <li><a href="login.php" id="login">Log in</a></li>
-                        </ul>
-                    </div>
+                            <ul>
+                                <li><a href="Feedback.php">Feedback</a></li>
+                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                                    ?>
+                                <li><a href="login.php">Log in</a></li><?php } else {?>
+                                    <li><a id="login"href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
+                            </ul>
+                        </div>
                     </li>
+                                </ul>
             </nav>
             <h1 style="text-align: center;">Login</h1>
         </header>

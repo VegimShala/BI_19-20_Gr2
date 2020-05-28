@@ -1,7 +1,4 @@
-<?php
-// Initialize the session
 
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,19 +70,23 @@ span.psw {
             <p>Kosovo</p>
             <nav>
                 <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="About.html">ABOUT</a></li>
-                    <li><a href="Gallery.html">GALLERY</a></li>
-                    <li><a href="Places.html">PLACES</a></li>
-                    <li><a href="Services.html" id="serviceNav">SERVICES</a></li>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="About.php" id="about1">ABOUT</a></li>
+                    <li><a href="Gallery.php">GALLERY</a></li>
+                    <li><a href="Places.php">PLACES</a></li>
+                    <li><a href="Services.php" id="serviceNav">SERVICES</a></li>
                     <li><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
                             <ul>
-                                <li><a href="Feedback.html">Feedback</a></li>
-                                <li><a href="login.html">Log in</a></li>
+                                <li><a href="Feedback.php">Feedback</a></li>
+                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                                    ?>
+                                <li><a href="login.php">Log in</a></li><?php } else {?>
+                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
                             </ul>
                         </div>
                     </li>
+                                </ul>
             </nav>
 
             <!-- <h1>Enjoy Your Dream Vacation</h1> -->
@@ -110,8 +111,8 @@ span.psw {
                 <form action="#" method="post">
         <div class="container" >
 
-            <label for="services" id="some" ><b>Select activity</b></label>
-             <select id="services" type="text" name="services" placeholder="hhh">
+            <label for="services" id="some" ><b>Select category</b></label>
+             <select id="categories" type="text" name="categories" placeholder="hhh">
             <option selected="selected" ></option>
             <option value="Activities">Activities</option>
             <option value="Festivals">Festivals</option>

@@ -26,19 +26,23 @@ and open the template in the editor.
             <p>Kosovo</p>
             <nav>
                 <ul>
-                    <li><a href="index.html" >HOME</a></li>
-                    <li><a href="About.html" >ABOUT</a></li>
-                    <li><a href="Gallery.html" >GALLERY</a></li>
-                    <li><a href="Places.html" id="places">PLACES</a></li>
-                    <li><a href="Services.html" >SERVICES</a></li>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="About.php" id="about1">ABOUT</a></li>
+                    <li><a href="Gallery.php">GALLERY</a></li>
+                    <li><a href="Places.php" id="places">PLACES</a></li>
+                    <li><a href="Services.php">SERVICES</a></li>
                     <li><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
                             <ul>
-                                <li><a href="Feedback.html">Feedback</a></li>
-                                <li><a href="login.html">Log in</a></li>
+                                <li><a href="Feedback.php">Feedback</a></li>
+                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                                    ?>
+                                <li><a href="login.php">Log in</a></li><?php } else {?>
+                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
                             </ul>
                         </div>
                     </li>
+                                </ul>
             </nav>
             <h1>No sea?! No problem</h1>
             <h3>There are still plenty of places you can visit...</h3>

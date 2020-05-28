@@ -152,23 +152,25 @@ function ClearAll() {
     <div id="blur"></div>
     <div class="wrapper">
 
-        <header id="entrance">
-            <p>Kosovo</p>
-            <nav>
+    <nav>
                 <ul>
-                    <li><a href="index.html" id="home">HOME</a></li>
-                    <li><a href="About.html" id="about">ABOUT</a></li>
-                    <li><a href="Gallery.html" id="gallery">GALLERY</a></li>
-                    <li><a href="Places.html" id="places">PLACES</a></li>
-                    <li><a href="Services.html" id="services">SERVICES</a></li>
+                    <li><a href="index.php" id="home">HOME</a></li>
+                    <li><a href="About.php">ABOUT</a></li>
+                    <li><a href="Gallery.php">GALLERY</a></li>
+                    <li><a href="Places.php">PLACES</a></li>
+                    <li><a href="Services.php">SERVICES</a></li>
                     <li><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
                             <ul>
-                                <li><a href="Feedback.html" id="feedbackNav">Feedback</a></li>
-                                <li><a href="login.html">Log in</a></li>
+                                <li><a href="Feedback.php" id="feedbackNav">Feedback</a></li>
+                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                                    ?>
+                                <li><a href="login.php">Log in</a></li><?php } else {?>
+                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
                             </ul>
                         </div>
                     </li>
+                                </ul>
             </nav>
             <h1 id="V">Thank you very much</h1>
             <h3>Visit us again...</h3>

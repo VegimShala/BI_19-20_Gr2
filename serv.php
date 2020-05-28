@@ -22,7 +22,7 @@ if(isset($_REQUEST["term"])){
                 // Fetch result rows as an associative array
                 while($row = $result->fetch_array(MYSQLI_ASSOC)){
                     echo "  <a>
-                    <div class='service'>
+                    <div class='services'>
                         <img src='".$row["Logo"]."' alt='foto'>
                         <div class='text'>
                             <p>".$row["name"]."</p>

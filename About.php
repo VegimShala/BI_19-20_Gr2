@@ -21,19 +21,23 @@
             <p>Kosovo</p>
             <nav>
                 <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="About.html" id="about1">ABOUT</a></li>
-                    <li><a href="Gallery.html">GALLERY</a></li>
-                    <li><a href="Places.html">PLACES</a></li>
-                    <li><a href="Services.html">SERVICES</a></li>
-                    <li ><a href="#" id="drop">MORE</a>
+                    <li><a href="index.php">HOME</a></li>
+                    <li><a href="About.php" id="about1">ABOUT</a></li>
+                    <li><a href="Gallery.php">GALLERY</a></li>
+                    <li><a href="Places.php">PLACES</a></li>
+                    <li><a href="Services.php">SERVICES</a></li>
+                    <li><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
-                            <ul >
-                            <li><a href="Feedback.html">Feedback</a></li>
-                            <li><a href="login.html">Log in</a></li>
-                        </ul>
-                    </div>
+                            <ul>
+                                <li><a href="Feedback.php">Feedback</a></li>
+                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                                    ?>
+                                <li><a href="login.php">Log in</a></li><?php } else {?>
+                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
+                            </ul>
+                        </div>
                     </li>
+                                </ul>
             </nav>
         
             <h1 style=" -webkit-text-stroke: 1px darkblue;">WELCOME TO KOSOVO</h1>
@@ -120,7 +124,7 @@
                 <h2 id="check" >Republic of Kosovo</h2>
                 <form action="cities.php">
                     <label for="cities"><b>Select City</b></label>
-                    <select id="cities" type="text" name="cities" style="padding:5px 15px;margin-left:3%">
+                    <select id="cities" type="text" name="cities" style="padding:5px 15px;margin-left:3%" onclick="changeMap()">
                         <option value="2">Prishtine</option>
                         <option value="3">Prizren</option>
                         <option value="4">Gjakove</option>
