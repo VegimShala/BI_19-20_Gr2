@@ -198,7 +198,7 @@ padding-right: 100px;
             else
             {
             ?>
-            <form class="booking" action="<?php include 'writeFile.php';$writeUsers = new WriteJSONFile('json'); $writeUsers->writeJSONNew('Bookings'); echo "#"?>" style=" width:initial;   display: block;
+            <form class="booking" action="<?php include 'writeFile.php';$writeUsers = new WriteJSONFile('json'); $writeUsers->writeJSONNew('Bookings'); header("location: bookings.php");?>" style=" width:initial;   display: block;
     margin: 0 auto;
     padding: 10%;">
                     <input style="    height: 50px;
