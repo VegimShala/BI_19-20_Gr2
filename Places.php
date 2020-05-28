@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -33,12 +35,12 @@ and open the template in the editor.
                     <li><a href="Services.php">SERVICES</a></li>
                     <li><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
-                            <ul>
-                                <li><a href="Feedback.php">Feedback</a></li>
-                                <?php if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+                        <ul>
+                               
+                                <?php if(!isset($_SESSION["loggedin"])){
                                     ?>
                                 <li><a href="login.php">Log in</a></li><?php } else {?>
-                                    <li><a href="<?php unset($_SESSION["loggedin"]);?>">Log out</a></li><?php }?>
+                                    <li><a href="logout.php">Log out</a></li><?php }?>
                             </ul>
                         </div>
                     </li>

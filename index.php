@@ -38,7 +38,7 @@ echo $_SESSION["loggedin"];
                     <li><a href="#" id="drop">MORE</a>
                         <div id="dropdown">
                             <ul>
-                                <li><a href="Feedback.php">Feedback</a></li>
+                                
                                 <?php if(!isset($_SESSION["loggedin"])){
                                     ?>
                                 <li><a href="login.php">Log in</a></li><?php } else {?>
