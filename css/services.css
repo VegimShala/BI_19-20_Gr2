@@ -104,14 +104,14 @@ background: -moz-radial-gradient(ellipse at top, #e66465, transparent),
     
 }
 
-.service
-{
-    margin-left:25px ;
+.service {
+    margin-left: 10px;
     border: none;
     border-bottom: 1px solid #303030;
- border-color:#E2CBA0 ;
-
+    border-color: #E2CBA0;
+    display: inline-block;
 }
+
 #col p
 {
     color: #131C39;
