@@ -56,14 +56,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
              $addcheckout=$checkout;}
 
 
-        // Validate email
-             if(empty(trim($_POST["email"]))){
-        $email_err = "Please enter a email.";}
-        else {
-
-         $email = trim($_POST["email"]);
-             $addemail=$email;}
-
+        
         // Validate person
         if(empty(trim($_POST["person"]))){
         $person_err = "Please enter a person.";}
@@ -103,6 +96,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     if(empty($name_err) && empty($room_err) && empty($rez_err) && empty($person_err) && empty($email_err)&& empty($checkin_err) && empty($checkout_err) && empty($hotel_err))   
     {
         $userId = "";
+        $email = $_SESSION["email"];
         $getUserId = "SELECT * from Users WHERE email = '$email';";
             $result = $conn -> query($getUserId);
             if ($result->num_rows > 0) {
@@ -226,7 +220,6 @@ span.psw {
                     <li><a href="Places.php">PLACES</a></li>
                     <li><a href="Services.php">SERVICES</a></li>
                      <?php if(!isset($_SESSION["loggedin"])){?>
-                        
                     <li><a href="login.php">Log in</a></li><?php } else {?>
                     <li><a href="logout.php">Log out</a></li><?php }?></li>
                 </ul>
@@ -247,9 +240,6 @@ span.psw {
             <input type="text" placeholder="Your name" id="fname" name="name" >
            <!--  <p id="msg" style="color:darkblue; margin:1%" ><?php echo $servicename_err; ?></p> -->
      
-            <label for="email" id="some"><b>Email:</b></label>
-            <input name="email" type="email" placeholder="e.x. name@domain.com">
-            <!-- <p id="msg" style="color:darkblue; margin:1%" ><?php echo $img_err; ?></p> -->
 
             <label> <b> Check-in: </b>
                         <input name="checkin" type="date" required>
